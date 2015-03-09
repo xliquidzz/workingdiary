@@ -39,10 +39,10 @@ public class WorkingDiaryApp extends Application<WorkingDiaryConfiguration> {
         final DBIFactory factory = new DBIFactory();
         final DBI jdbi = factory.build(environment, configuration.getDataSourceFactory(), "mysql");
 
-        //Services
+        // Services
         services.put(EntryService.class.hashCode(), new EntryService(jdbi));
 
-        //Register Resources
+        // Register Resources
         environment.jersey().register(new EntryResource());
 
         // Register security component
