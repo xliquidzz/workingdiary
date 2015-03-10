@@ -30,6 +30,7 @@ project.ext {
     mockitoVersion = '1.8.4'
     toastshamanJwtAuthVersion = '0.7.1-0'
     jwtVersion = '2.0.1'
+    commonsCodecVersion ='1.10'
 }
 
 dependencies {
@@ -44,7 +45,8 @@ dependencies {
             'com.fasterxml.jackson.datatype:jackson-datatype-jsr310:' + jacksonDatatypeJSR310Version,
             'mysql:mysql-connector-java:' + mysqlConnectorVersion,
             'com.github.toastshaman:dropwizard-auth-jwt:' + toastshamanJwtAuthVersion,
-            'com.auth0:java-jwt:' + jwtVersion
+            'com.auth0:java-jwt:' + jwtVersion,
+            'commons-codec:commons-codec:' + commonsCodecVersion
     )
 
     testCompile(

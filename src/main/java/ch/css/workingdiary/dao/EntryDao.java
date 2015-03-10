@@ -7,14 +7,15 @@ import org.skife.jdbi.v2.sqlobject.GetGeneratedKeys;
 import org.skife.jdbi.v2.sqlobject.SqlQuery;
 import org.skife.jdbi.v2.sqlobject.SqlUpdate;
 import org.skife.jdbi.v2.sqlobject.customizers.Mapper;
+import org.skife.jdbi.v2.sqlobject.customizers.RegisterMapper;
 
 import java.util.List;
 
 /**
  * Created by sandro on 04.03.2015.
  */
+@RegisterMapper(EntryMapper.class)
 public interface EntryDao {
-
     @GetGeneratedKeys
     @SqlUpdate("INSERT INTO entry (id, title, message, created, draft, fk_userId) VALUES (NULL, :title, :message, NOW(), :draft, :userId)")
     long create(@Bind("title") final String title,
@@ -23,6 +24,8 @@ public interface EntryDao {
                 @Bind("userId") final long userId);
 
     @SqlQuery("SELECT * FROM entry")
-    @Mapper(EntryMapper.class)
     List<Entry> getEntries();
+
+    @SqlQuery("SELECT * FROM entry WHERE fk_userId = :userId")
+    List<Entry> getEntriesByUserId(@Bind("userId")final long userId);
 }

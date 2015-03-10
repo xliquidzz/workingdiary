@@ -40,8 +40,8 @@ public class EntryServiceShould {
     @Test
     public void createNewEntry() {
         when(mockedEntryDao.create(anyString(), anyString(), anyBoolean(), anyLong())).thenReturn(entry.getId());
-        final Long newEntryId = entryService.create(entry);
-        assertThat(newEntryId).isEqualTo(entry.getId());
+        final Optional optionalNewEntryId = entryService.create(entry, 1);
+        assertThat(optionalNewEntryId.isPresent());
         verify(mockedEntryDao, times(1)).create(anyString(), anyString(), anyBoolean(), anyLong());
     }
 
@@ -55,6 +55,8 @@ public class EntryServiceShould {
         when(mockedEntryDao.getEntries()).thenReturn(expected);
 
         final Optional<List<Entry>> optionalEntries =  entryService.getEntries();
+        assertThat(optionalEntries.isPresent());
+
         final List<Entry> entries = optionalEntries.get();
 
         assertTrue(entries.size() == 10);
@@ -65,5 +67,4 @@ public class EntryServiceShould {
 
         verify(mockedEntryDao, times(1)).getEntries();
     }
-
 }

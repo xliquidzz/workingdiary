@@ -1,1 +1,2 @@
-var app = angular.module('workingDiary', ['menu', 'route', 'entryModule']);
+var app = angular.module('workingDiary', ['menu', 'route', 'entryModule', 'userModule']);
+

@@ -2,9 +2,12 @@ package ch.css.workingdiary.resource;
 
 import ch.css.workingdiary.WorkingDiaryApp;
 import ch.css.workingdiary.representation.Entry;
+import ch.css.workingdiary.representation.User;
 import ch.css.workingdiary.service.EntryService;
 import com.google.common.base.Optional;
+import io.dropwizard.auth.Auth;
 
+import javax.validation.Valid;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
@@ -27,14 +30,30 @@ public class EntryResource {
     }
 
     @POST
-    public Response create(final Entry newEntry) throws URISyntaxException {
-        final long newEntryId = entryService.create(newEntry);
-        return Response.created(new URI(String.valueOf(newEntryId))).build();
+    public Response create(@Valid final Entry newEntry, @Auth User user) throws URISyntaxException {
+        final Optional optionalNewEntryId = entryService.create(newEntry, user.getId());
+        if(optionalNewEntryId.isPresent()) {
+            final Long newEntryId = (Long) optionalNewEntryId.get();
+            return Response.created(new URI(String.valueOf(newEntryId))).build();
+        }
+        return Response.status(Response.Status.BAD_REQUEST).build();
     }
-
+/*
     @GET
+    @Path("/admin")
     public Response getEntries() {
         final Optional<List<Entry>> optionalEntries = entryService.getEntries();
+        if (optionalEntries.isPresent()) {
+            final List<Entry> entries = optionalEntries.get();
+            return Response.ok(entries).build();
+        }
+        return Response.status(Response.Status.NOT_FOUND).build();
+    }
+*/
+
+    @GET
+    public Response getEntriesFromUser(@Auth User user) {
+        final Optional<List<Entry>> optionalEntries = entryService.getEntriesByUserId(user.getId());
         if (optionalEntries.isPresent()) {
             final List<Entry> entries = optionalEntries.get();
             return Response.ok(entries).build();

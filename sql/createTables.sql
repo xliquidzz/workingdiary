@@ -48,6 +48,7 @@ insert into role(description) values("apprentice");
 
 INSERT INTO user(id,username, password, fk_roleId) VALUES(null,"xliquidzz","12345", 1);
 INSERT INTO user(id,username, password, fk_roleId) VALUES(null,"test_user","12345", 1);
+INSERT INTO user(id,username, password, fk_roleId) VALUES(null,"hash_user","8cb2237d0679ca88db6464eac60da96345513964", 2);
 
 
 INSERT INTO entry(id, title, body, created, fk_userId) VALUES(null,"Hi i am xliquidzz", "I am the body of xliquidzz's entry.", NOW(), NOW(), 1);

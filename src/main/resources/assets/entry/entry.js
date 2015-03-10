@@ -10,7 +10,7 @@ entry.controller('newEntryController', ['$scope', 'entryService', function($scop
                 $scope.alert = '<div class="alert alert-success">Your entry has been successfully created.</div>';
                 $scope.reset();
             },
-            function (error){
+            function (error) {
                 $scope.alert = '<div class="alert alert-danger">Your entry could not be created. There has been an Error.</div>';
             }
         );
@@ -28,7 +28,6 @@ entry.controller('entryController', ['$scope', 'entryService', function($scope, 
     };
 
     $scope.entries = entryService.getEntries();
-
 }]);
 
 entry.service('entryService', ['$resource', function ($resource) {
@@ -40,7 +39,16 @@ entry.service('entryService', ['$resource', function ($resource) {
             return resource.save(entry);
         },
         getEntries: function() {
-            return resource.query()
+            var result = resource.query();
+            result.$promise.then(
+                function(success) {
+                    return success;
+                },
+                function (error) {
+                    return [];
+                }
+            );
+            return result;
         }
     }
 }]);

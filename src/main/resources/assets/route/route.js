@@ -1,7 +1,6 @@
 var route = angular.module('route', ['ngRoute']);
 
 route.config(['$routeProvider', function ($routeProvider) {
-
     $routeProvider
     .when('/', {
         templateUrl: 'entry/entries.html',
@@ -14,5 +13,4 @@ route.config(['$routeProvider', function ($routeProvider) {
     .otherwise({
         redirectTo: '/'
     });
-
 }]);

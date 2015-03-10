@@ -14,21 +14,23 @@ public class EntryService implements Service {
 
     private final EntryDao entryDao;
 
-    public EntryService(EntryDao entryDao) {
+    public EntryService(final EntryDao entryDao) {
         this.entryDao = entryDao;
     }
 
-    public EntryService(DBI dbi) {
-        this.entryDao = dbi.onDemand(EntryDao.class);
-    }
-
     // TODO change user id - magic number
-    public long create(final Entry newEntry) {
-        final long newEntryId = entryDao.create(newEntry.getTitle(), newEntry.getMessage(), newEntry.isDraft(), 1);
-        return newEntryId;
+    public Optional<Long> create(final Entry newEntry, final long userId) {
+        final long newEntryId = entryDao.create(newEntry.getTitle(), newEntry.getMessage(), newEntry.isDraft(), userId);
+        return Optional.of(newEntryId);
     }
 
-    public Optional getEntries() {
+    public Optional<List<Entry>> getEntries() {
         return Optional.of(entryDao.getEntries());
+    }
+
+
+    public Optional<List<Entry>> getEntriesByUserId(final long userId) {
+        final List<Entry> entries = entryDao.getEntriesByUserId(userId);
+        return Optional.of(entries);
     }
 }

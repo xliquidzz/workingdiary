@@ -5,15 +5,48 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="style/layout.css">
     <title>Working Diary</title>
 </head>
 <body>
+<div ng-controller="loginController">
     <div menu-bar></div>
     <div class="content">
         <div ng-view></div>
     </div>
 
-
+        <div class="modal fade bs-example-modal-md" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-md">
+                <div class="modal-content">
+                    <h2 class="col-md-offset-2">Welcome! <small>Please Sign in.</small></h2>
+                    <form form-role="form" name="loginForm" ng-submit="signIn()" class="form-horizontal">
+                        <div class="row">
+                            <div class="form-group">
+                                <label for="inputUsername" class="control-label sr-only">Benutzername:</label>
+                                <div class="col-md-offset-2 col-md-8">
+                                    <input type="text" ng-model="user.username" class="form-control" id="inputUsername" placeholder="Username">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group">
+                                <label for="inputPassword" class="control-label sr-only">Passwort:</label>
+                                <div class="col-md-offset-2 col-md-8">
+                                    <input type="password" ng-model="user.password" class="form-control" id="inputPassword" placeholder="Password">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-primary col-md-offset-8 col-md-2">Sign In</button>
+                            </div>
+                        </div>
+                    </form>
+                    <div ng-bind-html="loginAlert"></div>
+                </div>
+            </div>
+        </div>
+    </div>
 <script src="http://code.jquery.com/jquery-2.1.3.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.9/angular.js"></script>
@@ -21,6 +54,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.9/angular-resource.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.9/angular-sanitize.js"></script>
 <script src="app.js"></script>
+<script src="user/user.js"></script>
 <script src="menu/menu.js"></script>
 <script src="route/route.js"></script>
 <script src="entry/entry.js"></script>
