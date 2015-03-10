@@ -36,7 +36,7 @@ public class UserResourceShould {
     @Test
     public void returnAccessToken() {
 
-        User expected = new User("xliquidzz", "12345", "testFirstname", "testLastname", 1);
+        User expected = new User("test_apprentice", "12345", "testFirstname", "testLastname", 1);
 
         final Client client = new Client();
 
@@ -46,6 +46,48 @@ public class UserResourceShould {
                 .post(ClientResponse.class, expected);
 
         assertThat(response.getStatus()).isEqualTo(200);
+
+        Map<String, String> tokenMap = response.getEntity(new GenericType<Map<String, String>>() {});
+
+        String token = tokenMap.get("accessToken");
+
+        assertTrue(token instanceof String);
+    }
+
+    @Test
+    public void returnAllApprentice() {
+
+        User expected = new User("xliquidzz", "12345", "testFirstname", "testLastname", 1);
+
+        final Client client = new Client();
+
+        final ClientResponse response = client.resource(String.format("http://localhost:%d/api/user/role/" + 1, RULE.getLocalPort()))
+                .accept(MediaType.APPLICATION_JSON)
+                .type(MediaType.APPLICATION_JSON)
+                .post(ClientResponse.class, expected);
+
+        assertThat(response.getStatus()).isEqualTo(200);
+
+        Map<String, String> tokenMap = response.getEntity(new GenericType<Map<String, String>>() {});
+
+        String token = tokenMap.get("accessToken");
+
+        assertTrue(token instanceof String);
+    }
+
+    @Test
+    public void return403WhenAllApprentice() {
+
+        User expected = new User("xliquidzz", "12345", "testFirstname", "testLastname", 1);
+
+        final Client client = new Client();
+
+        final ClientResponse response = client.resource(String.format("http://localhost:%d/api/user/role/" + 1, RULE.getLocalPort()))
+                .accept(MediaType.APPLICATION_JSON)
+                .type(MediaType.APPLICATION_JSON)
+                .post(ClientResponse.class, expected);
+
+        assertThat(response.getStatus()).isEqualTo(403);
 
         Map<String, String> tokenMap = response.getEntity(new GenericType<Map<String, String>>() {});
 

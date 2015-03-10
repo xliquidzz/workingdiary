@@ -9,6 +9,8 @@ CREATE TABLE `user` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `username` varchar(100) NOT NULL,
   `password` varchar(40) NOT NULL,
+  `firstname` varchar(100) NOT NULL,
+  `lastname` varchar(100) NOT NULL,
   `fk_roleId` bigint(20) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `username` (`username`),
@@ -44,10 +46,14 @@ CREATE TABLE user_categories (
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
 
 
-insert into role(description) values("apprentice");
+insert into role(id, description) values(null, "apprentice");
+insert into role(id, description) values(null, "trainer");
+insert into role(id, description) values(null, "vocation trainer");
 
-INSERT INTO user(id,username, password, fk_roleId) VALUES(null,"xliquidzz","12345", 1);
-INSERT INTO user(id,username, password, fk_roleId) VALUES(null,"test_user","12345", 1);
+INSERT INTO user(id,username, password, firstname, lastname, fk_roleId) VALUES(null,"test_apprentice","12345", "firstApprentice", "lastApprentice", 1);
+INSERT INTO user(id,username, password, firstname, lastname, fk_roleId) VALUES(null,"test_trainer","12345", "firstTrainer", "lastTrainer", 2);
+INSERT INTO user(id,username, password, firstname, lastname, fk_roleId) VALUES(null,"test_vocationTrainer","12345","firstVocationTrainer", "lastVocationTrainer", 3);
+
 INSERT INTO user(id,username, password, fk_roleId) VALUES(null,"hash_user","8cb2237d0679ca88db6464eac60da96345513964", 2);
 
 

@@ -3,12 +3,8 @@ package ch.css.workingdiary.resource;
 import ch.css.workingdiary.WorkingDiaryApp;
 import ch.css.workingdiary.representation.User;
 import ch.css.workingdiary.service.UserService;
-import com.github.toastshaman.dropwizard.auth.jwt.hmac.HmacSHA512Signer;
-import com.github.toastshaman.dropwizard.auth.jwt.model.JsonWebToken;
-import com.github.toastshaman.dropwizard.auth.jwt.model.JsonWebTokenClaim;
-import com.github.toastshaman.dropwizard.auth.jwt.model.JsonWebTokenHeader;
 import com.google.common.base.Optional;
-import org.joda.time.DateTime;
+import io.dropwizard.auth.Auth;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
@@ -44,5 +40,11 @@ public class UserResource {
             }
         }
         return Response.status(Response.Status.FORBIDDEN).build();
+    }
+
+    @GET
+    @Path("/get-role")
+    public Response getUserRole(@Auth User user) {
+        return Response.ok(user.getRoleId()).build();
     }
 }

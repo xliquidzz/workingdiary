@@ -23,6 +23,7 @@ user.controller('loginController', ['$scope', '$resource', '$window', '$location
                 $window.localStorage.setItem('Authorization', value.accessToken);
                 loginService.signedIn = true;
                 if($location.path() == '/') {
+                    $('.bs-example-modal-md').modal('hide');
                     $location.path('/entry');
                 }
             },
@@ -35,14 +36,28 @@ user.controller('loginController', ['$scope', '$resource', '$window', '$location
         );
     };
 
-    setTimeout(function(){
-       showSignIn();
-    }, 0);
+    var roleId = loginService.getRoleId();
+    $scope.roleId = roleId.$promise.then(
+        function(success){
+            $('.bs-example-modal-md').modal('hide');
+            return success;
+        },
+        function(error) {
+            setTimeout(function(){
+               showSignIn();
+            }, 0);
+            return;
+        }
+    );
 }]);
 
-user.service('loginService', [function () {
+user.service('loginService', ['$resource', function ($resource) {
     return {
-        isSignedIn: false
+        isSignedIn: false,
+        getRoleId: function () {
+            var resource = $resource('/api/user/get-role');
+            return resource.get();
+        }
     }
 }]);
 
@@ -61,7 +76,6 @@ user.factory('AuthInterceptor', ['$window', '$q', '$location', function ($window
         },
 
         'response': function(response) {
-            $('.bs-example-modal-md').modal('hide');
             return response || $q.when(response);
         },
 

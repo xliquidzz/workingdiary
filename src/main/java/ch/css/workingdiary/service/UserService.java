@@ -11,6 +11,7 @@ import com.google.common.base.Optional;
 import org.joda.time.DateTime;
 
 import javax.security.auth.login.Configuration;
+import java.util.List;
 import java.util.Map;
 
 import static java.util.Collections.singletonMap;
@@ -22,6 +23,7 @@ public class UserService implements Service {
 
     private final UserDao userDao;
     private byte[] tokenSecret;
+    private Optional<User> allApprentice;
 
     public UserService(final UserDao userDao, final byte[] tokenSecret) {
         this.userDao = userDao;
@@ -61,5 +63,10 @@ public class UserService implements Service {
                 .build();
         final String signedToken = signer.sign(token);
         return Optional.of(singletonMap("accessToken", signedToken));
+    }
+
+    public Optional<List<User>> getAllApprentice() {
+        final List<User> apprentices = userDao.getAllApprentice();
+        return Optional.of(apprentices);
     }
 }

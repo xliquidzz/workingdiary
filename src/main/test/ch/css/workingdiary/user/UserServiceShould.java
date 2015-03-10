@@ -61,4 +61,28 @@ public class UserServiceShould {
 
         assertThat(actual.getUsername()).isEqualTo(expected.getUsername());
     }
+
+    @Test
+    public void returnAllApprentice() {
+        List<User> expected = new ArrayList<>();
+        for (long id = 1; id <= 10; id++) {
+            expected.add(new User("testUser", id, 1));
+        }
+
+        when(mockedUserDao.getAllApprentice()).thenReturn(expected);
+
+        final Optional<List<User>> optionalAllApprentice = userService.getAllApprentice();
+
+        assertTrue(optionalAllApprentice.isPresent());
+
+        List<User> allApprentice = optionalAllApprentice.get();
+
+        assertTrue(allApprentice.size() == 10);
+        long testId = 0;
+        for (User user : allApprentice) {
+            assertThat(user.getId()).isEqualTo(++testId);
+        }
+
+        verify(mockedUserDao, times(1)).getAllApprentice();
+    }
 }

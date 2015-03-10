@@ -41,6 +41,5 @@ public class UserShould {
         assertThat(actual.getUsername()).isEqualTo(expected.getUsername());
         assertThat(actual.getFirstname()).isEqualTo(expected.getFirstname());
         assertThat(actual.getLastname()).isEqualTo(expected.getLastname());
-
     }
 }

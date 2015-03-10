@@ -36,7 +36,7 @@ public class EntryResourceShould {
 
     @BeforeClass
     public static void authenticate() {
-        User userO = new User("xliquidzz", "12345");
+        User userO = new User("test_apprentice", "12345");
 
         final Client client = new Client();
 
