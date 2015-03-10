@@ -53,21 +53,4 @@ public class UserResourceShould {
 
         assertTrue(token instanceof String);
     }
-/*
-    public String authenticate() {
-        User user = new User("xliquidzz", "12345");
-
-        final Client client = new Client();
-
-        final ClientResponse authResponse = client.resource(String.format("http://localhost:%d/api/jwt/generate-token", RULE.getLocalPort()))
-                .accept(MediaType.APPLICATION_JSON)
-                .type(MediaType.APPLICATION_JSON)
-                .post(ClientResponse.class, user);
-
-        assertThat(authResponse.getStatus()).isEqualTo(200);
-
-        Map<String, String> tokenMap = authResponse.getEntity(new GenericType<Map<String, String>>() {});
-        String token = tokenMap.get("accessToken");
-        return token;
-    }*/
 }

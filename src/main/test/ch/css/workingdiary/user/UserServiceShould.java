@@ -49,5 +49,16 @@ public class UserServiceShould {
         assertTrue(accessToken instanceof String);
     }
 
+    @Test
+    public void returnUserByName() {
+        final User expected = new User("xliquidzz", "12345");
+        when(mockedUserDao.getByUsername("xliquidzz")).thenReturn(expected);
 
+        Optional<User> optionalUser = userService.getUserByName(expected.getUsername());
+        assertTrue(optionalUser.isPresent());
+
+        final User actual = optionalUser.get();
+
+        assertThat(actual.getUsername()).isEqualTo(expected.getUsername());
+    }
 }

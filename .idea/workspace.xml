@@ -2,48 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9a170179-7ce4-432d-987c-036ad59fafbf" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/ch/css/workingdiary/representation/User.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/ch/css/workingdiary/dao/mapper/UserAuthenticationMapper.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/ch/css/workingdiary/dao/UserDao.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/ch/css/workingdiary/dao/mapper/UserMapper.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/ch/css/workingdiary/resource/UserResource.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/test/ch/css/workingdiary/user/UserResourceShould.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/ch/css/workingdiary/service/UserService.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/test/ch/css/workingdiary/user/UserServiceShould.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/test/ch/css/workingdiary/user/UserShould.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/ch/css/workingdiary/security/WorkingDiaryAuthenticator.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/assets/user/signin.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/fixtures/deserialize/user.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/fixtures/serialize/user.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/main/ch/css/workingdiary/dao/EntryDao.class" afterPath="$PROJECT_DIR$/build/classes/main/ch/css/workingdiary/dao/EntryDao.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/main/ch/css/workingdiary/resource/EntryResource.class" afterPath="$PROJECT_DIR$/build/classes/main/ch/css/workingdiary/resource/EntryResource.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/main/ch/css/workingdiary/service/EntryService.class" afterPath="$PROJECT_DIR$/build/classes/main/ch/css/workingdiary/service/EntryService.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/test/ch/css/workingdiary/entry/EntryServiceShould.class" afterPath="$PROJECT_DIR$/build/classes/test/ch/css/workingdiary/entry/EntryServiceShould.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/main/ch/css/workingdiary/WorkingDiaryApp.class" afterPath="$PROJECT_DIR$/build/classes/main/ch/css/workingdiary/WorkingDiaryApp.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/main/ch/css/workingdiary/WorkingDiaryConfiguration.class" afterPath="$PROJECT_DIR$/build/classes/main/ch/css/workingdiary/WorkingDiaryConfiguration.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ch/css/workingdiary/dao/EntryDao.java" afterPath="$PROJECT_DIR$/src/main/java/ch/css/workingdiary/dao/EntryDao.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ch/css/workingdiary/resource/EntryResource.java" afterPath="$PROJECT_DIR$/src/main/java/ch/css/workingdiary/resource/EntryResource.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ch/css/workingdiary/service/EntryService.java" afterPath="$PROJECT_DIR$/src/main/java/ch/css/workingdiary/service/EntryService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/test/ch/css/workingdiary/entry/EntryServiceShould.java" afterPath="$PROJECT_DIR$/src/main/test/ch/css/workingdiary/entry/EntryServiceShould.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WorkingDiary.iml" afterPath="$PROJECT_DIR$/WorkingDiary.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ch/css/workingdiary/WorkingDiaryApp.java" afterPath="$PROJECT_DIR$/src/main/java/ch/css/workingdiary/WorkingDiaryApp.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ch/css/workingdiary/WorkingDiaryConfiguration.java" afterPath="$PROJECT_DIR$/src/main/java/ch/css/workingdiary/WorkingDiaryConfiguration.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/resources/main/assets/app.js" afterPath="$PROJECT_DIR$/build/resources/main/assets/app.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/assets/app.js" afterPath="$PROJECT_DIR$/src/main/resources/assets/app.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build.gradle" afterPath="$PROJECT_DIR$/build.gradle" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sql/createTables.sql" afterPath="$PROJECT_DIR$/sql/createTables.sql" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/resources/main/assets/entry/entry.js" afterPath="$PROJECT_DIR$/build/resources/main/assets/entry/entry.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/assets/entry/entry.js" afterPath="$PROJECT_DIR$/src/main/resources/assets/entry/entry.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/findbugs-idea.xml" afterPath="$PROJECT_DIR$/.idea/findbugs-idea.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/resources/main/assets/index.html" afterPath="$PROJECT_DIR$/build/resources/main/assets/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/assets/index.html" afterPath="$PROJECT_DIR$/src/main/resources/assets/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/resources/main/assets/style/layout.css" afterPath="$PROJECT_DIR$/build/resources/main/assets/style/layout.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/assets/style/layout.css" afterPath="$PROJECT_DIR$/src/main/resources/assets/style/layout.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/assets/route/route.js" afterPath="$PROJECT_DIR$/src/main/resources/assets/route/route.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/resources/main/assets/user/user.js" afterPath="$PROJECT_DIR$/build/resources/main/assets/user/user.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/assets/user/user.js" afterPath="$PROJECT_DIR$/src/main/resources/assets/user/user.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/test/ch/css/workingdiary/entry/EntryResourceShould.java" afterPath="$PROJECT_DIR$/src/main/test/ch/css/workingdiary/entry/EntryResourceShould.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/test/ch/css/workingdiary/user/UserResourceShould.java" afterPath="$PROJECT_DIR$/src/main/test/ch/css/workingdiary/user/UserResourceShould.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/test/ch/css/workingdiary/user/UserServiceShould.java" afterPath="$PROJECT_DIR$/src/main/test/ch/css/workingdiary/user/UserServiceShould.java" />
     </list>
     <ignored path="WorkingDiary.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -90,11 +51,31 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="newentry.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/assets/entry/newentry.html">
+      <file leaf-file-name="EntryResourceShould.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/test/ch/css/workingdiary/entry/EntryResourceShould.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-3.9230769" vertical-offset="0" max-vertical-offset="867">
-              <caret line="6" column="37" selection-start-line="6" selection-start-column="37" selection-end-line="6" selection-end-column="37" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="278" max-vertical-offset="1768">
+              <caret line="51" column="44" selection-start-line="51" selection-start-column="44" selection-end-line="51" selection-end-column="44" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="UserServiceShould.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/test/ch/css/workingdiary/user/UserServiceShould.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="867">
+              <caret line="61" column="51" selection-start-line="61" selection-start-column="51" selection-end-line="61" selection-end-column="51" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="UserResourceShould.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/test/ch/css/workingdiary/user/UserResourceShould.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.80169284" vertical-offset="0" max-vertical-offset="827">
+              <caret line="54" column="5" selection-start-line="54" selection-start-column="5" selection-end-line="54" selection-end-column="5" />
               <folding />
             </state>
           </provider>
@@ -105,16 +86,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="-1.9615384" vertical-offset="0" max-vertical-offset="510">
               <caret line="3" column="38" selection-start-line="3" selection-start-column="38" selection-end-line="3" selection-end-column="38" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="EntryService.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/ch/css/workingdiary/service/EntryService.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="561">
-              <caret line="22" column="118" selection-start-line="22" selection-start-column="118" selection-end-line="22" selection-end-column="118" />
               <folding />
             </state>
           </provider>
@@ -140,11 +111,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="user.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="user.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/resources/assets/user/user.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.04" vertical-offset="0" max-vertical-offset="1496">
-              <caret line="2" column="83" selection-start-line="2" selection-start-column="83" selection-end-line="2" selection-end-column="83" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="595" max-vertical-offset="1496">
+              <caret line="67" column="47" selection-start-line="67" selection-start-column="47" selection-end-line="67" selection-end-column="47" />
               <folding />
             </state>
           </provider>
@@ -155,16 +126,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="357">
               <caret line="15" column="4" selection-start-line="15" selection-start-column="4" selection-end-line="15" selection-end-column="4" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/assets/index.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="7.1923075" vertical-offset="340" max-vertical-offset="1139">
-              <caret line="9" column="7" selection-start-line="9" selection-start-column="7" selection-end-line="9" selection-end-column="7" />
               <folding />
             </state>
           </provider>
@@ -608,7 +569,6 @@
         <option value="$PROJECT_DIR$/src/main/resources/assets/entry/new_entry.html" />
         <option value="$PROJECT_DIR$/src/main/java/ch/css/workingdiary/dao/mapper/EntryMapper.java" />
         <option value="$PROJECT_DIR$/src/main/resources/assets/entry/newentry.html" />
-        <option value="$PROJECT_DIR$/src/main/test/ch/css/workingdiary/entry/EntryResourceShould.java" />
         <option value="$PROJECT_DIR$/src/main/java/ch/css/workingdiary/security/WorkingDiaryAuthentication.java" />
         <option value="$PROJECT_DIR$/src/main/java/ch/css/workingdiary/security/WorkingDiaryAuthenticatior.java" />
         <option value="$PROJECT_DIR$/build.gradle" />
@@ -621,8 +581,6 @@
         <option value="$PROJECT_DIR$/src/main/java/ch/css/workingdiary/WorkingDiaryConfiguration.java" />
         <option value="$PROJECT_DIR$/src/main/java/ch/css/workingdiary/representation/User.java" />
         <option value="$PROJECT_DIR$/src/main/java/ch/css/workingdiary/dao/mapper/UserAuthenticationMapper.java" />
-        <option value="$PROJECT_DIR$/src/main/test/ch/css/workingdiary/user/UserServiceShould.java" />
-        <option value="$PROJECT_DIR$/src/main/test/ch/css/workingdiary/user/UserResourceShould.java" />
         <option value="$PROJECT_DIR$/src/main/resources/assets/style/layout.css" />
         <option value="$PROJECT_DIR$/src/main/resources/assets/user/signin.html" />
         <option value="$PROJECT_DIR$/src/main/resources/assets/menu/menu.html" />
@@ -642,6 +600,9 @@
         <option value="$PROJECT_DIR$/src/main/resources/assets/route/route.js" />
         <option value="$PROJECT_DIR$/src/main/resources/assets/entry/entry.js" />
         <option value="$PROJECT_DIR$/src/main/resources/assets/user/user.js" />
+        <option value="$PROJECT_DIR$/src/main/test/ch/css/workingdiary/user/UserServiceShould.java" />
+        <option value="$PROJECT_DIR$/src/main/test/ch/css/workingdiary/user/UserResourceShould.java" />
+        <option value="$PROJECT_DIR$/src/main/test/ch/css/workingdiary/entry/EntryResourceShould.java" />
       </list>
     </option>
   </component>
@@ -1134,7 +1095,7 @@
       <recent name="C:\Users\sandro\Documents\GitHub\WorkingDiary\src\main\resources\fixtures" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.WorkingDiary">
+  <component name="RunManager" selected="JUnit.All in WorkingDiary">
     <configuration default="false" name="All in WorkingDiary" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <module name="WorkingDiary" />
@@ -1384,24 +1345,24 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="1358" y="-8" width="1936" height="1176" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="FindBugs-IDEA" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3289597" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32755905" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3270853" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33645737" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.17713214" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.19868791" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="CheckStyle" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32942328" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.18020834" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.18020834" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.20416667" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -1494,8 +1455,14 @@
           <properties />
           <option name="timeStamp" value="46" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/test/ch/css/workingdiary/entry/EntryResourceShould.java</url>
+          <line>63</line>
+          <properties />
+          <option name="timeStamp" value="47" />
+        </line-breakpoint>
       </breakpoints>
-      <option name="time" value="47" />
+      <option name="time" value="48" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -1606,14 +1573,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/test/ch/css/workingdiary/entry/EntryResourceShould.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.2" vertical-offset="0" max-vertical-offset="952">
-          <caret line="24" column="0" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/ch/css/workingdiary/WorkingDiaryConfiguration.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.6" vertical-offset="0" max-vertical-offset="680">
@@ -1631,17 +1590,6 @@
           <caret line="12" column="69" selection-start-line="12" selection-start-column="69" selection-end-line="12" selection-end-column="69" />
           <folding>
             <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/test/ch/css/workingdiary/user/UserServiceShould.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.675" vertical-offset="34" max-vertical-offset="714">
-          <caret line="46" column="69" selection-start-line="46" selection-start-column="69" selection-end-line="46" selection-end-column="69" />
-          <folding>
-            <element signature="e#771#772#0" expanded="true" />
-            <element signature="e#868#869#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1674,14 +1622,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="195" max-vertical-offset="1037">
           <caret line="49" column="87" selection-start-line="49" selection-start-column="0" selection-end-line="49" selection-end-column="87" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/test/ch/css/workingdiary/user/UserResourceShould.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="255" max-vertical-offset="1088">
-          <caret line="51" column="51" selection-start-line="51" selection-start-column="51" selection-end-line="51" selection-end-column="51" />
           <folding />
         </state>
       </provider>
@@ -1940,6 +1880,22 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/assets/user/user.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="595" max-vertical-offset="1496">
+          <caret line="67" column="47" selection-start-line="67" selection-start-column="47" selection-end-line="67" selection-end-column="47" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/test/ch/css/workingdiary/user/UserServiceShould.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="867">
+          <caret line="61" column="51" selection-start-line="61" selection-start-column="51" selection-end-line="61" selection-end-column="51" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/assets/entry/entry.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="102" max-vertical-offset="1003">
@@ -1948,10 +1904,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/assets/user/user.js">
+    <entry file="file://$PROJECT_DIR$/src/main/test/ch/css/workingdiary/entry/EntryResourceShould.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.04" vertical-offset="0" max-vertical-offset="1496">
-          <caret line="2" column="83" selection-start-line="2" selection-start-column="83" selection-end-line="2" selection-end-column="83" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="278" max-vertical-offset="1768">
+          <caret line="51" column="44" selection-start-line="51" selection-start-column="44" selection-end-line="51" selection-end-column="44" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/test/ch/css/workingdiary/user/UserResourceShould.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.80169284" vertical-offset="0" max-vertical-offset="827">
+          <caret line="54" column="5" selection-start-line="54" selection-start-column="5" selection-end-line="54" selection-end-column="5" />
           <folding />
         </state>
       </provider>
