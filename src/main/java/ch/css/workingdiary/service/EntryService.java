@@ -33,4 +33,7 @@ public class EntryService implements Service {
         final List<Entry> entries = entryDao.getEntriesByUserId(userId);
         return Optional.of(entries);
     }
+
+    public void deleteEntryById(long entryId) {
+    }
 }

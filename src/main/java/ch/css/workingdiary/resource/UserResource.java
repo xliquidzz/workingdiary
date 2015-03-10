@@ -10,7 +10,10 @@ import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
+import java.util.List;
 import java.util.Map;
+
+import static java.util.Collections.singletonMap;
 
 /**
  * Created by sandro on 09.03.2015.
@@ -45,6 +48,19 @@ public class UserResource {
     @GET
     @Path("/get-role")
     public Response getUserRole(@Auth User user) {
-        return Response.ok(user.getRoleId()).build();
+        return Response.ok(singletonMap("roleId", user.getRoleId())).build();
+    }
+
+    @GET
+    @Path("/role/{roleId}")
+    public Response getUsersWithRole(@PathParam("roleId") final long roleId, @Auth final User user) {
+        if (user.getRoleId() == 3) {
+            final Optional<List<User>> optionalUsers = userService.getUsersWithRole(roleId);
+            if (optionalUsers.isPresent()) {
+                final List<User> users = optionalUsers.get();
+                return Response.ok(users).build();
+            }
+        }
+        return Response.status(Response.Status.UNAUTHORIZED).build();
     }
 }

@@ -38,18 +38,6 @@ public class EntryResource {
         }
         return Response.status(Response.Status.BAD_REQUEST).build();
     }
-/*
-    @GET
-    @Path("/admin")
-    public Response getEntries() {
-        final Optional<List<Entry>> optionalEntries = entryService.getEntries();
-        if (optionalEntries.isPresent()) {
-            final List<Entry> entries = optionalEntries.get();
-            return Response.ok(entries).build();
-        }
-        return Response.status(Response.Status.NOT_FOUND).build();
-    }
-*/
 
     @GET
     public Response getEntriesFromUser(@Auth User user) {
@@ -59,6 +47,26 @@ public class EntryResource {
             return Response.ok(entries).build();
         }
         return Response.status(Response.Status.NOT_FOUND).build();
+    }
+
+    @GET
+    @Path("/user/{userId}")
+    public Response getApprenticeEntries (@PathParam("userId") final long userId, @Auth User user) {
+        if (user.getRoleId() == 3) {
+            final Optional<List<Entry>> optionalEntries = entryService.getEntriesByUserId(userId);
+            if (optionalEntries.isPresent()) {
+                final List<Entry> entries = optionalEntries.get();
+                return Response.ok(entries).build();
+            }
+            return Response.status(Response.Status.NOT_FOUND).build();
+        }
+        return Response.status(Response.Status.UNAUTHORIZED).build();
+    }
+
+    @DELETE
+    @PathParam("/entry/{entryId}")
+    public Response deleteEntry(@PathParam("entryId") final long entryId, @Auth final User user) {
+        entryService.deleteEntryById(entryId);
     }
 }
 

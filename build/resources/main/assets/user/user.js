@@ -22,10 +22,22 @@ user.controller('loginController', ['$scope', '$resource', '$window', '$location
             function( value ) {
                 $window.localStorage.setItem('Authorization', value.accessToken);
                 loginService.signedIn = true;
-                if($location.path() == '/') {
-                    $('.bs-example-modal-md').modal('hide');
-                    $location.path('/entry');
-                }
+                var roleId = loginService.getRoleId()
+                .$promise.then(
+                    function (success) {
+                        $scope.roleId = success.roleId
+                        $('.bs-example-modal-md').modal('hide');
+                        if($location.path() == '/') {
+                            if($scope.roleId == 1) {
+                                $location.path('/');
+                            } else if($scope.roleId == 2) {
+                                $location.path('/');
+                            } else if($scope.roleId == 3) {
+                                $location.path('/all/apprentice');
+                            }
+                        }
+                    }
+                );
             },
             function( error ){
                 $window.localStorage.removeItem('Authorization');
@@ -36,19 +48,18 @@ user.controller('loginController', ['$scope', '$resource', '$window', '$location
         );
     };
 
-    var roleId = loginService.getRoleId();
-    $scope.roleId = roleId.$promise.then(
-        function(success){
-            $('.bs-example-modal-md').modal('hide');
-            return success;
-        },
-        function(error) {
-            setTimeout(function(){
-               showSignIn();
-            }, 0);
-            return;
-        }
-    );
+   var roleId = loginService.getRoleId();
+   roleId.$promise.then(
+         function(success){
+             $('.bs-example-modal-md').modal('hide');
+             $scope.roleId = success.roleId;
+         },
+         function(error) {
+             setTimeout(function(){
+                showSignIn();
+             }, 0);
+         }
+     );
 }]);
 
 user.service('loginService', ['$resource', function ($resource) {

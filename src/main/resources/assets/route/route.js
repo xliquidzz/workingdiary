@@ -15,6 +15,10 @@ route.config(['$routeProvider', function ($routeProvider) {
         templateUrl: 'entry/newentry.html',
         controller: 'newEntryController'
     })
+    .when('/all/apprentice', {
+        templateUrl: 'entry/entries_vocationTrainer.html',
+        controller: 'vocationTrainerEntryController'
+    })
     .otherwise({
         redirectTo: '/'
     });

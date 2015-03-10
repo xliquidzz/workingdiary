@@ -30,6 +30,19 @@ entry.controller('entryController', ['$scope', 'entryService', function($scope, 
     $scope.entries = entryService.getEntries();
 }]);
 
+entry.controller('vocationTrainerEntryController', ['$scope', 'entryService', function($scope, entryService){
+
+    $scope.users = entryService.getApprentices();
+
+    $scope.setEntries = function (userId) {
+        $scope.entries = entryService.getApprenticeEntries(userId);
+    }
+
+    $scope.setDetailedEntry = function (entry) {
+        $scope.detailedEntry = entry || '';
+    };
+}]);
+
 entry.service('entryService', ['$resource', function ($resource) {
 
     var resource = $resource('/api/entry');
@@ -48,6 +61,14 @@ entry.service('entryService', ['$resource', function ($resource) {
                     return [];
                 }
             );
+            return result;
+        },
+        getApprentices: function () {
+            var result = $resource('/api/user/role/1').query();
+            return result;
+        },
+        getApprenticeEntries: function (userId) {
+            var result = $resource('/api/entry/user/' + userId).query();
             return result;
         }
     }
