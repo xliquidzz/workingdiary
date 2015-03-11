@@ -3,6 +3,7 @@
         <div class="nav navbar-nav">
             <a class="navbar-brand" href="#/apprentice/entry">Working Diary</a>
             <li ng-class="{ active: isActive('/create/entry') }" ng-show="roleId == 1"><a href="#/create/entry">Neuer Eintrag</a></li>
+            <li ng-class="{ active: isActive('/trainer/apprentice') }" ng-show="roleId == 2"><a href="#/trainer/apprentice">Meine Lernenden</a></li>
             <li ng-class="{ active: isActive('/all/apprentice') }" ng-show="roleId == 3"><a href="#/all/apprentice">Alle Lernenden</a></li>
         </div>
     </div>

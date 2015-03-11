@@ -3,6 +3,7 @@ package ch.css.workingdiary.resource;
 import ch.css.workingdiary.WorkingDiaryApp;
 import ch.css.workingdiary.representation.User;
 import ch.css.workingdiary.service.UserService;
+import ch.css.workingdiary.util.Role;
 import com.google.common.base.Optional;
 import io.dropwizard.auth.Auth;
 
@@ -54,8 +55,21 @@ public class UserResource {
     @GET
     @Path("/role/{roleId}")
     public Response getUsersWithRole(@PathParam("roleId") final long roleId, @Auth final User user) {
-        if (user.getRoleId() == 3) {
+        if (user.getRoleId() == Role.VOCATION_TRAINER.getRoleId()) {
             final Optional<List<User>> optionalUsers = userService.getUsersWithRole(roleId);
+            if (optionalUsers.isPresent()) {
+                final List<User> users = optionalUsers.get();
+                return Response.ok(users).build();
+            }
+        }
+        return Response.status(Response.Status.UNAUTHORIZED).build();
+    }
+
+    @GET
+    @Path("/apprentices")
+    public Response getApprenticesOfTrainer(@Auth final User user) {
+        if (user.getRoleId() == Role.TRAINER.getRoleId()) {
+            final Optional<List<User>> optionalUsers = userService.getUsersWithTrainerId(user.getId());
             if (optionalUsers.isPresent()) {
                 final List<User> users = optionalUsers.get();
                 return Response.ok(users).build();

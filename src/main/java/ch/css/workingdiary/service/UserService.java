@@ -1,6 +1,5 @@
 package ch.css.workingdiary.service;
 
-import ch.css.workingdiary.WorkingDiaryConfiguration;
 import ch.css.workingdiary.dao.UserDao;
 import ch.css.workingdiary.representation.User;
 import com.github.toastshaman.dropwizard.auth.jwt.hmac.HmacSHA512Signer;
@@ -10,7 +9,6 @@ import com.github.toastshaman.dropwizard.auth.jwt.model.JsonWebTokenHeader;
 import com.google.common.base.Optional;
 import org.joda.time.DateTime;
 
-import javax.security.auth.login.Configuration;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -40,7 +38,7 @@ public class UserService implements Service {
     }
 
     public Optional<User> authenticate(final String username, final String password) {
-        final User userToCompareWith = userDao.getByUsername(username);
+        final User userToCompareWith = userDao.getByUsernameWithPassword(username);
         if (userToCompareWith != null) {
             if (password.equals(userToCompareWith.getPassword())) {
                 return Optional.of(userToCompareWith);
@@ -68,9 +66,15 @@ public class UserService implements Service {
     public Optional<List<User>> getUsersWithRole(final long roleId) {
         final List<User> users = userDao.getUsersWithRole(roleId);
         final List<User> usersToReturn = new ArrayList<>();
+
         for (User user : users) {
             usersToReturn.add(new User(user.getId(), user.getUsername(), user.getFirstname(), user.getLastname(), user.getRoleId()));
         }
         return Optional.of(usersToReturn);
+    }
+
+    public Optional<List<User>> getUsersWithTrainerId(final long trainerId) {
+        final List<User> users = userDao.getUsersWithTrainerId(trainerId);
+        return Optional.of(users);
     }
 }

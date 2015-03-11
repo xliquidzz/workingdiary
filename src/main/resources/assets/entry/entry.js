@@ -21,7 +21,7 @@ entry.controller('newEntryController', ['$scope', 'entryService', function($scop
     };
 }]);
 
-entry.controller('entryController', ['$scope', 'entryService', function($scope, entryService){
+entry.controller('entryController', ['$scope', 'entryService', function($scope, entryService) {
 
     $scope.setDetailedEntry = function (entry) {
         $scope.detailedEntry = entry || '';
@@ -29,9 +29,23 @@ entry.controller('entryController', ['$scope', 'entryService', function($scope, 
 
     $scope.entries = entryService.getEntries();
 
-    $scope.remove = function(entryId) {
-        entryService.remove(entryId);
-    }
+    $scope.remove = function() {
+        entryService.remove($scope.detailedEntry.id);
+    };
+}]);
+
+entry.controller('trainerEntryController', ['$scope', 'entryService', function($scope, entryService) {
+
+    $scope.users = entryService.getApprenticeOfTrainer();
+
+    $scope.setEntries = function (userId) {
+        $scope.entries = entryService.getApprenticeEntries(userId);
+    };
+
+    $scope.setDetailedEntry = function (entry) {
+        $scope.detailedEntry = entry || '';
+    };
+
 }]);
 
 entry.controller('vocationTrainerEntryController', ['$scope', 'entryService', function($scope, entryService){
@@ -40,7 +54,7 @@ entry.controller('vocationTrainerEntryController', ['$scope', 'entryService', fu
 
     $scope.setEntries = function (userId) {
         $scope.entries = entryService.getApprenticeEntries(userId);
-    }
+    };
 
     $scope.setDetailedEntry = function (entry) {
         $scope.detailedEntry = entry || '';
@@ -77,6 +91,10 @@ entry.service('entryService', ['$resource', function ($resource) {
         },
         remove: function(entryId) {
             var result = $resource('/api/entry/' + entryId).delete();
+            return result;
+        },
+        getApprenticeOfTrainer: function () {
+            var result = $resource('/api/user/apprentices').query();
             return result;
         }
     }

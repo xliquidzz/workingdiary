@@ -31,20 +31,17 @@ CREATE TABLE `entry` (
   CONSTRAINT `fk_userId` FOREIGN KEY (`fk_userId`) REFERENCES `user` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
 
-
-
-____
-
-CREATE TABLE user_categories (
- categoryId bigint(20) NOT NULL,
- userId bigint(20) NOT NULL,
- KEY categoryId (categoryId),
- KEY userId (userId),
- CONSTRAINT categoryId FOREIGN KEY (categoryId) REFERENCES category (id),
- CONSTRAINT userId FOREIGN KEY (userId) REFERENCES user (id),
- PRIMARY KEY (categoryId, userId)
+CREATE TABLE apprentice_trainer (
+ apprenticeId bigint(20) NOT NULL,
+ trainerId bigint(20) NOT NULL,
+ KEY apprenticeId (apprenticeId),
+ KEY trainerId (trainerId),
+ CONSTRAINT apprenticeId FOREIGN KEY (apprenticeId) REFERENCES user (id),
+ CONSTRAINT trainerId FOREIGN KEY (trainerId) REFERENCES user (id),
+ PRIMARY KEY (apprenticeId, trainerId)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
 
+____
 
 insert into role(id, description) values(null, "apprentice");
 insert into role(id, description) values(null, "trainer");
@@ -55,6 +52,12 @@ INSERT INTO user(id,username, password, firstname, lastname, fk_roleId) VALUES(n
 INSERT INTO user(id,username, password, firstname, lastname, fk_roleId) VALUES(null,"test_vocationTrainer","12345","firstVocationTrainer", "lastVocationTrainer", 3);
 
 INSERT INTO user(id,username, password, fk_roleId) VALUES(null,"hash_user","8cb2237d0679ca88db6464eac60da96345513964", 2);
+
+insert into apprentice_trainer (trainerId, apprenticeId) values(2,1);
+insert into apprentice_trainer (trainerId, apprenticeId) values(2,1);
+insert into apprentice_trainer (trainerId, apprenticeId) values(2,1);
+
+select id, username, firstname, lastname, fk_roleId from user u, apprentice_trainer at where at.trainerId=:trainerId AND u.id = at.apprenticeId;
 
 
 INSERT INTO entry(id, title, body, created, fk_userId) VALUES(null,"Hi i am xliquidzz", "I am the body of xliquidzz's entry.", NOW(), NOW(), 1);

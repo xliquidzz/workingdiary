@@ -1,9 +1,11 @@
 package ch.css.workingdiary.dao;
 
+import ch.css.workingdiary.dao.mapper.UserDisplayMapper;
 import ch.css.workingdiary.dao.mapper.UserMapper;
 import ch.css.workingdiary.representation.User;
 import org.skife.jdbi.v2.sqlobject.Bind;
 import org.skife.jdbi.v2.sqlobject.SqlQuery;
+import org.skife.jdbi.v2.sqlobject.customizers.Mapper;
 import org.skife.jdbi.v2.sqlobject.customizers.RegisterMapper;
 
 import java.util.List;
@@ -15,8 +17,15 @@ import java.util.List;
 public interface UserDao {
 
     @SqlQuery("select * from user where username = :username")
+    User getByUsernameWithPassword(@Bind("username") final String username);
+
+    @SqlQuery("select * from user where username = :username")
     User getByUsername(@Bind("username") final String username);
 
     @SqlQuery("select * from user where fk_roleId = :roleId")
     List<User> getUsersWithRole(@Bind("roleId") final long roleId);
+
+    @Mapper(UserDisplayMapper.class)
+    @SqlQuery("select id, username, firstname, lastname, fk_roleId from user u, apprentice_trainer at where at.trainerId = :trainerId AND u.id = at.apprenticeId;")
+    List<User> getUsersWithTrainerId(@Bind("trainerId") final long trainerId);
 }

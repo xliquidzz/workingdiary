@@ -1,7 +1,6 @@
 package ch.css.workingdiary.user;
 
 import ch.css.workingdiary.dao.UserDao;
-import ch.css.workingdiary.representation.Entry;
 import ch.css.workingdiary.representation.User;
 import ch.css.workingdiary.service.UserService;
 import com.google.common.base.Optional;
@@ -38,7 +37,7 @@ public class UserServiceShould {
     @Test
     public void returnAccessToken() {
         final User expected = new User("xliquidzz", "12345");
-        when(mockedUserDao.getByUsername("xliquidzz")).thenReturn(expected);
+        when(mockedUserDao.getByUsernameWithPassword("xliquidzz")).thenReturn(expected);
 
         Optional<Map<String,String>> optionalMap = userService.getAccessToken(expected);
         assertTrue(optionalMap.isPresent());
@@ -52,7 +51,7 @@ public class UserServiceShould {
     @Test
     public void returnUserByName() {
         final User expected = new User("xliquidzz", "12345");
-        when(mockedUserDao.getByUsername("xliquidzz")).thenReturn(expected);
+        when(mockedUserDao.getByUsername(expected.getUsername())).thenReturn(expected);
 
         Optional<User> optionalUser = userService.getUserByName(expected.getUsername());
         assertTrue(optionalUser.isPresent());
@@ -85,5 +84,30 @@ public class UserServiceShould {
         }
 
         verify(mockedUserDao, times(1)).getUsersWithRole(roleId);
+    }
+
+    @Test
+    public void returnAllApprenticeOfTrainer() {
+        List<User> expected = new ArrayList<>();
+        final long trainerId = 1;
+        for (long id = 1; id <= 10; id++) {
+            expected.add(new User("testUser", id, 1));
+        }
+
+        when(mockedUserDao.getUsersWithTrainerId(trainerId)).thenReturn(expected);
+
+        final Optional<List<User>> optionalApprenticeOfTrainer = userService.getUsersWithTrainerId(trainerId);
+
+        assertTrue(optionalApprenticeOfTrainer.isPresent());
+
+        List<User> apprenticeOfTrainer = optionalApprenticeOfTrainer.get();
+
+        assertTrue(apprenticeOfTrainer.size() == 10);
+        long testId = 0;
+        for (User user : apprenticeOfTrainer) {
+            assertThat(user.getId()).isEqualTo(++testId);
+        }
+
+        verify(mockedUserDao, times(1)).getUsersWithTrainerId(trainerId);
     }
 }

@@ -25,7 +25,7 @@ user.controller('loginController', ['$scope', '$resource', '$window', '$location
                 var roleId = loginService.getRoleId()
                 .$promise.then(
                     function (success) {
-                        $scope.roleId = success.roleId
+                        $scope.roleId = success.roleId;
                         $('.bs-example-modal-md').modal('hide');
                         if($location.path() == '/') {
                             if($scope.roleId == 1) {

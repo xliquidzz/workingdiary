@@ -2,14 +2,12 @@ package ch.css.workingdiary.user;
 
 import ch.css.workingdiary.WorkingDiaryApp;
 import ch.css.workingdiary.WorkingDiaryConfiguration;
-import ch.css.workingdiary.representation.Entry;
 import ch.css.workingdiary.representation.User;
 import com.google.common.base.Optional;
 import com.sun.jersey.api.client.Client;
 import com.sun.jersey.api.client.ClientResponse;
 import com.sun.jersey.api.client.GenericType;
 import io.dropwizard.testing.junit.DropwizardAppRule;
-import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.ClassRule;
 import org.junit.Test;
@@ -28,22 +26,25 @@ import static org.junit.Assert.assertTrue;
 public class UserResourceShould {
 
     private static final String CONFIG = "test_config.yaml";
-    private static String validToken;
+    private static String validVocationToken;
+    private static String validTrainerToken;
+    private static String validApprenticeToken;
 
     @ClassRule
     public static final DropwizardAppRule<WorkingDiaryConfiguration> RULE = new DropwizardAppRule(WorkingDiaryApp.class, CONFIG);
 
     @BeforeClass
     public static void authenticate() {
-        User userO = new User("test_vocationTrainer", "12345");
+        // Get Vocation Trainer Token
+        User vocationTrainer = new User("test_vocationTrainer", "12345");
 
         final Client client = new Client();
 
-        final ClientResponse authResponse = client.resource(String.format("http://localhost:%d/api/user/generate-token", RULE.getLocalPort()))
-                .header("Authorization", validToken)
+        ClientResponse authResponse = client.resource(String.format("http://localhost:%d/api/user/generate-token", RULE.getLocalPort()))
+                .header("Authorization", validVocationToken)
                 .accept(MediaType.APPLICATION_JSON)
                 .type(MediaType.APPLICATION_JSON)
-                .post(ClientResponse.class, userO);
+                .post(ClientResponse.class, vocationTrainer);
 
         assertThat(authResponse.getStatus()).isEqualTo(200);
 
@@ -51,7 +52,41 @@ public class UserResourceShould {
 
         String token = tokenMap.get("accessToken");
 
-        validToken = "bearer " + token;
+        validVocationToken = "bearer " + token;
+
+        // Get Trainer Token
+        User trainer = new User("test_trainer", "12345");
+
+        authResponse = client.resource(String.format("http://localhost:%d/api/user/generate-token", RULE.getLocalPort()))
+                .header("Authorization", validVocationToken)
+                .accept(MediaType.APPLICATION_JSON)
+                .type(MediaType.APPLICATION_JSON)
+                .post(ClientResponse.class, trainer);
+
+        assertThat(authResponse.getStatus()).isEqualTo(200);
+
+        tokenMap = authResponse.getEntity(new GenericType<Map<String, String>>() {});
+
+        token = tokenMap.get("accessToken");
+
+        validTrainerToken = "bearer " + token;
+
+        // Get Apprentice Token
+        User apprentice = new User("test_trainer", "12345");
+
+        authResponse = client.resource(String.format("http://localhost:%d/api/user/generate-token", RULE.getLocalPort()))
+                .header("Authorization", validVocationToken)
+                .accept(MediaType.APPLICATION_JSON)
+                .type(MediaType.APPLICATION_JSON)
+                .post(ClientResponse.class, apprentice);
+
+        assertThat(authResponse.getStatus()).isEqualTo(200);
+
+        tokenMap = authResponse.getEntity(new GenericType<Map<String, String>>() {});
+
+        token = tokenMap.get("accessToken");
+
+        validApprenticeToken = "bearer " + token;
     }
 
     @Test
@@ -82,7 +117,7 @@ public class UserResourceShould {
         long roleId = 1;
 
         final ClientResponse response = client.resource(String.format("http://localhost:%d/api/user/role/" + roleId, RULE.getLocalPort()))
-                .header("Authorization", validToken)
+                .header("Authorization", validVocationToken)
                 .accept(MediaType.APPLICATION_JSON)
                 .type(MediaType.APPLICATION_JSON)
                 .get(ClientResponse.class);
@@ -102,6 +137,37 @@ public class UserResourceShould {
         long roleId = 1;
 
         final ClientResponse response = client.resource(String.format("http://localhost:%d/api/user/role/" + roleId, RULE.getLocalPort()))
+                .accept(MediaType.APPLICATION_JSON)
+                .type(MediaType.APPLICATION_JSON)
+                .get(ClientResponse.class);
+
+        assertThat(response.getStatus()).isEqualTo(401);
+    }
+
+    @Test
+    public void returnAllApprenticeOfTrainer() {
+
+        final Client client = new Client();
+
+        final ClientResponse response = client.resource(String.format("http://localhost:%d/api/user/apprentices", RULE.getLocalPort()))
+                .header("Authorization", validTrainerToken)
+                .accept(MediaType.APPLICATION_JSON)
+                .type(MediaType.APPLICATION_JSON)
+                .get(ClientResponse.class);
+
+        assertThat(response.getStatus()).isEqualTo(200);
+
+        List<User> users = response.getEntity(new GenericType<List<User>>() {});
+
+        assertThat(users.isEmpty()).isEqualTo(false);
+    }
+
+    @Test
+    public void return401WhenGetAllApprenticeOfTrainer() {
+
+        final Client client = new Client();
+
+        final ClientResponse response = client.resource(String.format("http://localhost:%d/api/user/apprentices", RULE.getLocalPort()))
                 .accept(MediaType.APPLICATION_JSON)
                 .type(MediaType.APPLICATION_JSON)
                 .get(ClientResponse.class);

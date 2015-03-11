@@ -4,6 +4,7 @@ import ch.css.workingdiary.WorkingDiaryApp;
 import ch.css.workingdiary.representation.Entry;
 import ch.css.workingdiary.representation.User;
 import ch.css.workingdiary.service.EntryService;
+import ch.css.workingdiary.util.Role;
 import com.google.common.base.Optional;
 import io.dropwizard.auth.Auth;
 
@@ -52,7 +53,7 @@ public class EntryResource {
     @GET
     @Path("/user/{userId}")
     public Response getApprenticeEntries (@PathParam("userId") final long userId, @Auth User user) {
-        if (user.getRoleId() == 3) {
+        if (user.getRoleId() == Role.VOCATION_TRAINER.getRoleId() || user.getRoleId() == Role.TRAINER.getRoleId()) {
             final Optional<List<Entry>> optionalEntries = entryService.getEntriesByUserId(userId);
             if (optionalEntries.isPresent()) {
                 final List<Entry> entries = optionalEntries.get();
