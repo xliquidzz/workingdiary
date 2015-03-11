@@ -17,9 +17,19 @@
                 </div>
                 <div class="row">
                     <button type="button" class="btn btn-default col-md-2 col-md-offset-8">Bearbeiten <span class="glyphicon glyphicon-edit"></span></button>
-                    <button type="button" class="btn btn-default col-md-2" ng-click="remove">Löschen <span class="glyphicon glyphicon-remove"></span></button>
+                    <button type="button" class="btn btn-default col-md-2" ng-click="remove(detailedEntry.id)" data-toggle="modal" data-target=".bs-example-modal-sm">
+                        Löschen <span class="glyphicon glyphicon-remove"></span>
+                    </button>
                 </div>
             </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            Are you sure?
         </div>
     </div>
 </div>

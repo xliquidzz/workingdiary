@@ -64,9 +64,18 @@ public class EntryResource {
     }
 
     @DELETE
-    @PathParam("/entry/{entryId}")
+    @Path("/{entryId}")
     public Response deleteEntry(@PathParam("entryId") final long entryId, @Auth final User user) {
-        entryService.deleteEntryById(entryId);
+        final Optional<Entry> optionalEntry = entryService.getById(entryId);
+        if (optionalEntry.isPresent()) {
+            Entry entryToDelete = optionalEntry.get();
+            if (entryToDelete.getUserId() == user.getId()) {
+                entryService.deleteEntryById(entryId);
+                return Response.noContent().build();
+            }
+            return Response.status(403).build();
+        }
+        return Response.status(Response.Status.NOT_FOUND).build();
     }
 }
 

@@ -16,6 +16,6 @@ public class EntryMapper implements ResultSetMapper<Entry>{
     @Override
     public Entry map(int index, ResultSet r, StatementContext ctx) throws SQLException {
         return new Entry(r.getLong("id"), r.getString("title"), r.getString("message"),
-                new DateTime(r.getTimestamp("created")), r.getBoolean("draft"));
+                new DateTime(r.getTimestamp("created")), r.getBoolean("draft"), r.getLong("fk_userId"));
     }
 }

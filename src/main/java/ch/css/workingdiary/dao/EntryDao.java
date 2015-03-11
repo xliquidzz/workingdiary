@@ -27,5 +27,12 @@ public interface EntryDao {
     List<Entry> getEntries();
 
     @SqlQuery("SELECT * FROM entry WHERE fk_userId = :userId")
-    List<Entry> getEntriesByUserId(@Bind("userId")final long userId);
+    List<Entry> getEntriesByUserId(@Bind("userId") final long userId);
+
+
+    @SqlQuery("SELECT * FROM entry WHERE id = :entryId")
+    Entry getEntryById(@Bind("entryId") final long entryId);
+
+    @SqlUpdate("DELETE FROM entry WHERE id = :entryId")
+    void deleteById(@Bind("entryId") final long entryId);
 }

@@ -67,4 +67,10 @@ public class EntryServiceShould {
 
         verify(mockedEntryDao, times(1)).getEntries();
     }
+
+    @Test
+    public void deleteEntryById() {
+        entryService.deleteEntryById(1);
+        verify(mockedEntryDao, times(1)).deleteById(1);
+    }
 }

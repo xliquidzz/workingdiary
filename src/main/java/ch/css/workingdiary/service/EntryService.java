@@ -34,6 +34,12 @@ public class EntryService implements Service {
         return Optional.of(entries);
     }
 
-    public void deleteEntryById(long entryId) {
+    public Optional<Entry> getById(final long entryId) {
+        final Entry entry = entryDao.getEntryById(entryId);
+        return Optional.of(entry);
+    }
+
+    public void deleteEntryById(final long entryId) {
+        entryDao.deleteById(entryId);
     }
 }

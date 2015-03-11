@@ -28,6 +28,10 @@ entry.controller('entryController', ['$scope', 'entryService', function($scope, 
     };
 
     $scope.entries = entryService.getEntries();
+
+    $scope.remove = function(entryId) {
+        entryService.remove(entryId);
+    }
 }]);
 
 entry.controller('vocationTrainerEntryController', ['$scope', 'entryService', function($scope, entryService){
@@ -69,6 +73,10 @@ entry.service('entryService', ['$resource', function ($resource) {
         },
         getApprenticeEntries: function (userId) {
             var result = $resource('/api/entry/user/' + userId).query();
+            return result;
+        },
+        remove: function(entryId) {
+            var result = $resource('/api/entry/' + entryId).delete();
             return result;
         }
     }

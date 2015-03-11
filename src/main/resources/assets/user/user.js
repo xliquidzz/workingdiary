@@ -29,7 +29,7 @@ user.controller('loginController', ['$scope', '$resource', '$window', '$location
                         $('.bs-example-modal-md').modal('hide');
                         if($location.path() == '/') {
                             if($scope.roleId == 1) {
-                                $location.path('/');
+                                $location.path('/apprentice/entries');
                             } else if($scope.roleId == 2) {
                                 $location.path('/');
                             } else if($scope.roleId == 3) {

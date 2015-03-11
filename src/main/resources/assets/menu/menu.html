@@ -1,9 +1,9 @@
 <nav class="navbar navbar-default">
     <div class="navbar-header">
         <div class="nav navbar-nav">
-            <a class="navbar-brand" href="#/">Working Diary</a>
-            <li ng-class="{ active: isActive('/create/entry') }"><a href="#/create/entry">Neuer Eintrag</a></li>
-            <li ng-class="{ active: isActive('/all/apprentice') }"><a href="#/all/apprentice">Alle Lernenden</a></li>
+            <a class="navbar-brand" href="#/apprentice/entry">Working Diary</a>
+            <li ng-class="{ active: isActive('/create/entry') }" ng-show="roleId == 1"><a href="#/create/entry">Neuer Eintrag</a></li>
+            <li ng-class="{ active: isActive('/all/apprentice') }" ng-show="roleId == 3"><a href="#/all/apprentice">Alle Lernenden</a></li>
         </div>
     </div>
 </nav>

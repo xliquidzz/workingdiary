@@ -2,7 +2,7 @@ var route = angular.module('route', ['ngRoute']);
 
 route.config(['$routeProvider', function ($routeProvider) {
     $routeProvider
-    .when('/', {
+    .when('/apprentice/entry', {
         templateUrl: 'entry/entries.html',
         controller: 'entryController',
         resolve: {
@@ -19,7 +19,7 @@ route.config(['$routeProvider', function ($routeProvider) {
         templateUrl: 'entry/entries_vocationTrainer.html',
         controller: 'vocationTrainerEntryController'
     })
-    .otherwise({
+    .otherwise ({
         redirectTo: '/'
     });
 }]);

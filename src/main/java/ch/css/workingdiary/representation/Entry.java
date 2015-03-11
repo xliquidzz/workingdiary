@@ -37,9 +37,20 @@ public class Entry {
         this.draft = draft;
     }
 
+    public Entry(final long id, final String title, final String message, final DateTime created, final boolean draft, final long userId) {
+        this.id = id;
+        this.title = title;
+        this.message = message;
+        this.created = created;
+        this.draft = draft;
+        this.userId = userId;
+    }
+
     public Entry(final long id, final String title) {
         this(id, title, null, null, false);
     }
+
+
 
     public long getId() {
         return id;
