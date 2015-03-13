@@ -73,4 +73,11 @@ public class EntryServiceShould {
         entryService.deleteEntryById(1);
         verify(mockedEntryDao, times(1)).deleteById(1);
     }
+
+    @Test
+    public void updateEntryById() {
+        Entry expected = new Entry(1, "testTitle", "testMessage");
+        entryService.updateById(expected.getId(), expected);
+        verify(mockedEntryDao, times(1)).updateById(eq(expected.getId()), anyString(), anyString());
+    }
 }

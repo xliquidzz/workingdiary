@@ -35,4 +35,7 @@ public interface EntryDao {
 
     @SqlUpdate("DELETE FROM entry WHERE id = :entryId")
     void deleteById(@Bind("entryId") final long entryId);
+
+    @SqlUpdate("UPDATE entry SET title = :title, message = :message WHERE id = :entryId")
+    void updateById(@Bind("entryId") final long entryId, @Bind("title") final String title, @Bind("message") final String message);
 }

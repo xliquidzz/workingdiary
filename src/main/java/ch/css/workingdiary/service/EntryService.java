@@ -42,4 +42,8 @@ public class EntryService implements Service {
     public void deleteEntryById(final long entryId) {
         entryDao.deleteById(entryId);
     }
+
+    public void updateById(final long entryId, Entry entry) {
+        entryDao.updateById(entryId, entry.getTitle(), entry.getMessage());
+    }
 }

@@ -1,7 +1,7 @@
-var user = angular.module('userModule', ['ngSanitize', 'ngResource']);
+var user = angular.module('userModule', ['ngSanitize', 'ngResource', 'ngRoute']);
 
-user.controller('loginController', ['$scope', '$resource', '$window', '$location', 'loginService',
-    function ($scope, $resource, $window, $location, loginService) {
+user.controller('loginController', ['$scope', '$resource', '$window', '$location', '$route', 'loginService',
+    function ($scope, $resource, $window, $location, $route, loginService) {
 
     $scope.isSignedIn = loginService.isSignedIn;
 
@@ -14,6 +14,12 @@ user.controller('loginController', ['$scope', '$resource', '$window', '$location
         });
     };
 
+    $scope.signOut = function () {
+        $window.localStorage.removeItem('Authorization');
+        delete $scope.roleId;
+        $location.path('/');
+    }
+
      $scope.signIn = function() {
         var resource = $resource("/api/user/generate-token");
         var signIn = resource.save($scope.user);
@@ -23,18 +29,11 @@ user.controller('loginController', ['$scope', '$resource', '$window', '$location
                 $window.localStorage.setItem('Authorization', value.accessToken);
                 loginService.signedIn = true;
                 var roleId = loginService.getRoleId()
-                .$promise.then(
-                    function (success) {
+                .$promise.then(function (success) {
                         $scope.roleId = success.roleId;
                         $('.bs-example-modal-md').modal('hide');
-                        if($location.path() == '/') {
-                            if($scope.roleId == 1) {
-                                $location.path('/apprentice/entries');
-                            } else if($scope.roleId == 2) {
-                                $location.path('/');
-                            } else if($scope.roleId == 3) {
-                                $location.path('/all/apprentice');
-                            }
+                        if($location.path('/')) {
+                            $route.reload();
                         }
                     }
                 );
@@ -50,24 +49,24 @@ user.controller('loginController', ['$scope', '$resource', '$window', '$location
 
    var roleId = loginService.getRoleId();
    roleId.$promise.then(
-         function(success){
+         function (success) {
+            $scope.roleId = success.roleId;
              $('.bs-example-modal-md').modal('hide');
-             $scope.roleId = success.roleId;
          },
-         function(error) {
-             setTimeout(function(){
+         function (error) {
+             setTimeout(function() {
                 showSignIn();
              }, 0);
          }
      );
 }]);
 
-user.service('loginService', ['$resource', function ($resource) {
+user.service('loginService', ['$resource', '$q',function ($resource, $q) {
     return {
         isSignedIn: false,
         getRoleId: function () {
-            var resource = $resource('/api/user/get-role');
-            return resource.get();
+            var result = $resource('/api/user/get-role').get();
+            return result;
         }
     }
 }]);
@@ -76,7 +75,7 @@ user.config(['$httpProvider', function ($httpProvider) {
     $httpProvider.interceptors.push('AuthInterceptor');
 }]);
 
-user.factory('AuthInterceptor', ['$window', '$q', '$location', function ($window, $q, $location) {
+user.factory('AuthInterceptor', ['$window', '$q', function ($window, $q) {
     return {
         'request': function(config) {
             config.headers = config.headers || {};

@@ -66,12 +66,27 @@ public class EntryResource {
 
     @DELETE
     @Path("/{entryId}")
-    public Response deleteEntry(@PathParam("entryId") final long entryId, @Auth final User user) {
+    public Response deleteById(@PathParam("entryId") final long entryId, @Auth final User user) {
         final Optional<Entry> optionalEntry = entryService.getById(entryId);
         if (optionalEntry.isPresent()) {
-            Entry entryToDelete = optionalEntry.get();
+            final Entry entryToDelete = optionalEntry.get();
             if (entryToDelete.getUserId() == user.getId()) {
                 entryService.deleteEntryById(entryId);
+                return Response.noContent().build();
+            }
+            return Response.status(403).build();
+        }
+        return Response.status(Response.Status.NOT_FOUND).build();
+    }
+
+    @PUT
+    @Path("/{entryId}")
+    public Response updateById(@PathParam("entryId") final long entryId, @Valid Entry entry, @Auth final User user) {
+        final Optional<Entry> optionalEntry = entryService.getById(entryId);
+        if (optionalEntry.isPresent()) {
+            final Entry entryToDelete = optionalEntry.get();
+            if (entryToDelete.getUserId() == user.getId()) {
+                entryService.updateById(entryId, entry);
                 return Response.noContent().build();
             }
             return Response.status(403).build();

@@ -28,6 +28,7 @@ import static org.fest.assertions.api.Assertions.filter;
 public class EntryResourceShould {
 
     private static final String CONFIG = "test_config.yaml";
+    private static final long AVAILABLE_ID = 8;
 
     @ClassRule
     public static final DropwizardAppRule<WorkingDiaryConfiguration> RULE = new DropwizardAppRule<WorkingDiaryConfiguration>(WorkingDiaryApp.class, CONFIG);
@@ -112,6 +113,49 @@ public class EntryResourceShould {
                 .accept(MediaType.APPLICATION_JSON)
                 .type(MediaType.APPLICATION_JSON)
                 .get(ClientResponse.class);
+
+        assertThat(response.getStatus()).isEqualTo(401);
+    }
+
+    @Test
+    public void updateEntry() {
+        // You hav to change always AVAILABLE_ID
+        final Client client = new Client();
+        final Entry expected = new Entry(1, "absoluteTest", "absoluteTest");
+
+        final ClientResponse response = client.resource(String.format("http://localhost:%d/api/entry/" + AVAILABLE_ID, RULE.getLocalPort()))
+                .header("Authorization", validToken)
+                .accept(MediaType.APPLICATION_JSON)
+                .type(MediaType.APPLICATION_JSON)
+                .put(ClientResponse.class, expected);
+
+        assertThat(response.getStatus()).isEqualTo(204);
+    }
+    /*
+    @Test
+    public void deleteEntry() {
+        final Client client = new Client();
+        final Entry expected = new Entry(1, "testTitle", "testMessage");
+
+        final ClientResponse response = client.resource(String.format("http://localhost:%d/api/entry/" + expected.getId(), RULE.getLocalPort()))
+                .header("Authorization", validToken)
+                .accept(MediaType.APPLICATION_JSON)
+                .type(MediaType.APPLICATION_JSON)
+                .put(ClientResponse.class, expected);
+
+        assertThat(response.getStatus()).isEqualTo(204);
+    }
+    */
+
+    @Test
+    public void return401onUpdateEntry() {
+        final Client client = new Client();
+        final Entry expected = new Entry(1, "testTitle", "testMessage");
+
+        final ClientResponse response = client.resource(String.format("http://localhost:%d/api/entry/" + expected.getId(), RULE.getLocalPort()))
+                .accept(MediaType.APPLICATION_JSON)
+                .type(MediaType.APPLICATION_JSON)
+                .put(ClientResponse.class, expected);
 
         assertThat(response.getStatus()).isEqualTo(401);
     }

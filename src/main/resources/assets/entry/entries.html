@@ -7,8 +7,11 @@
                 </a>
             </div>
         </div>
-        <div class="panel panel-default col-md-8" ng-hide="detailedEntry === undefined">
+        <div class="panel panel-default col-md-8" id="entryToPrint" ng-hide="detailedEntry === undefined">
             <div class="panel-body">
+                <button type="button" class="btn btn-default col-md-1 print" ng-click="printDetailedEntry()">
+                    <span class="glyphicon glyphicon-print"></span>
+                </button>
                 <div class="row">
                     <h3 class="col-md-12">{{ detailedEntry.title }} <small class="pull-right">{{ detailedEntry.created | date: 'dd.MM.yy' }}</small></h3>
                 </div>
@@ -16,7 +19,7 @@
                     <p class="col-md-12">{{ detailedEntry.message }}</p>
                 </div>
                 <div class="row">
-                    <button type="button" class="btn btn-default col-md-2 col-md-offset-8">Bearbeiten <span class="glyphicon glyphicon-edit"></span></button>
+                    <button type="button" class="btn btn-default col-md-2 col-md-offset-7" ng-click="edit(detailedEntry)">Bearbeiten <span class="glyphicon glyphicon-edit"></span></button>
                     <button type="button" class="btn btn-default col-md-2" data-toggle="modal" data-target=".bs-example-modal-sm">
                         Löschen <span class="glyphicon glyphicon-remove"></span>
                     </button>

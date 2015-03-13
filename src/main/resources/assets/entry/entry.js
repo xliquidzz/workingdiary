@@ -21,7 +21,35 @@ entry.controller('newEntryController', ['$scope', 'entryService', function($scop
     };
 }]);
 
-entry.controller('entryController', ['$scope', 'entryService', function($scope, entryService) {
+entry.controller('updateEntryController', ['$scope', 'entryService', function($scope, entryService){
+    $scope.newEntry = {};
+
+    var entryToUpdate = entryService.entryToUpdate;
+
+    $scope.newEntry.title = entryToUpdate.title;
+    $scope.newEntry.message = entryToUpdate.message;
+
+    $scope.submit = function () {
+        var newEntryId = entryService.update(entryToUpdate.id, $scope.newEntry);
+
+        newEntryId.$promise.then(
+            function(success) {
+                $scope.alert = '<div class="alert alert-success">Your entry has been successfully updated.</div>';
+                $scope.reset();
+            },
+            function (error) {
+                $scope.alert = '<div class="alert alert-danger">Your entry could not be updated. There has been an Error.</div>';
+            }
+        );
+    };
+
+    $scope.reset = function() {
+        $scope.newEntry = null;
+        entryService.entryToUpdate = {};
+    };
+}]);
+
+entry.controller('entryController', ['$scope', '$location','entryService', function($scope, $location, entryService) {
 
     $scope.setDetailedEntry = function (entry) {
         $scope.detailedEntry = entry || '';
@@ -32,11 +60,24 @@ entry.controller('entryController', ['$scope', 'entryService', function($scope, 
     $scope.remove = function() {
         entryService.remove($scope.detailedEntry.id);
     };
+
+    $scope.edit = function(entry) {
+        entryService.entryToUpdate = entry;
+        $location.path('/apprentice/update/entry');
+    };
+
+    $scope.printDetailedEntry = function(divName) {
+      var printContents = document.getElementById('entryToPrint').innerHTML;
+      var popupWin = window.open('', '_blank', 'width=1000,height=600');
+      popupWin.document.open();
+      popupWin.document.write('<html><head><link rel="stylesheet" type="text/css" href="style/print.css"/><link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css"></head><body onload="window.print()">' + printContents + '</html>');
+      popupWin.document.close();
+    }
 }]);
 
-entry.controller('trainerEntryController', ['$scope', 'entryService', function($scope, entryService) {
+entry.controller('trainerEntryController', ['$scope', 'entryService', 'users', function($scope, entryService, users) {
 
-    $scope.users = entryService.getApprenticeOfTrainer();
+    $scope.users = users;
 
     $scope.setEntries = function (userId) {
         $scope.entries = entryService.getApprenticeEntries(userId);
@@ -48,7 +89,7 @@ entry.controller('trainerEntryController', ['$scope', 'entryService', function($
 
 }]);
 
-entry.controller('vocationTrainerEntryController', ['$scope', 'entryService', function($scope, entryService){
+entry.controller('vocationTrainerEntryController', ['$scope', '$http','entryService', function($scope, $http, entryService){
 
     $scope.users = entryService.getApprentices();
 
@@ -61,7 +102,7 @@ entry.controller('vocationTrainerEntryController', ['$scope', 'entryService', fu
     };
 }]);
 
-entry.service('entryService', ['$resource', function ($resource) {
+entry.service('entryService', ['$resource', '$http',function ($resource, $http) {
 
     var resource = $resource('/api/entry');
 
@@ -96,6 +137,12 @@ entry.service('entryService', ['$resource', function ($resource) {
         getApprenticeOfTrainer: function () {
             var result = $resource('/api/user/apprentices').query();
             return result;
-        }
+        },
+        update: function(entryId, entry) {
+            var resource = $resource('/api/entry/' + entryId, {}, {'update': {method: 'PUT', isArray: false }});
+            var entryToPut = {title: entry.title, message: entry.message};
+            return resource.update({}, entryToPut);
+        },
+        entryToUpdate: {}
     }
 }]);

@@ -50,6 +50,9 @@ public class Entry {
         this(id, title, null, null, false);
     }
 
+    public Entry(final long id, final String title, final String message) {
+        this(id, title, message, null, false, 0);
+    }
 
 
     public long getId() {

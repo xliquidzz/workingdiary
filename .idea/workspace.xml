@@ -2,32 +2,33 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9a170179-7ce4-432d-987c-036ad59fafbf" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/classes/main/ch/css/workingdiary/util/Role.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/classes/main/ch/css/workingdiary/dao/mapper/UserDisplayMapper.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/classes/test/ch/css/workingdiary/user/UserResourceShould$6.class" />
-      <change type="MOVED" beforePath="C:\Users\sandro\Documents\GitHub\WorkingDiary\build\classes\test\ch\css\workingdiary\user\UserResourceShould$2.class" afterPath="$PROJECT_DIR$/build/classes/test/ch/css/workingdiary/user/UserResourceShould$4.class" />
-      <change type="MOVED" beforePath="C:\Users\sandro\Documents\GitHub\WorkingDiary\build\classes\test\ch\css\workingdiary\user\UserResourceShould$3.class" afterPath="$PROJECT_DIR$/build/classes/test/ch/css/workingdiary/user/UserResourceShould$5.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/main/ch/css/workingdiary/dao/UserDao.class" afterPath="$PROJECT_DIR$/build/classes/main/ch/css/workingdiary/dao/UserDao.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/main/ch/css/workingdiary/resource/UserResource.class" afterPath="$PROJECT_DIR$/build/classes/main/ch/css/workingdiary/resource/UserResource.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/test/ch/css/workingdiary/user/UserResourceShould$1.class" afterPath="$PROJECT_DIR$/build/classes/test/ch/css/workingdiary/user/UserResourceShould$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/test/ch/css/workingdiary/user/UserResourceShould$2.class" afterPath="$PROJECT_DIR$/build/classes/test/ch/css/workingdiary/user/UserResourceShould$2.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/test/ch/css/workingdiary/user/UserResourceShould$3.class" afterPath="$PROJECT_DIR$/build/classes/test/ch/css/workingdiary/user/UserResourceShould$3.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/test/ch/css/workingdiary/user/UserResourceShould.class" afterPath="$PROJECT_DIR$/build/classes/test/ch/css/workingdiary/user/UserResourceShould.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/assets/style/print.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/assets/entry/updateentry.html" />
+      <change type="DELETED" beforePath="C:\Users\sandro\Documents\GitHub\WorkingDiary\build\resources\main\assets\entry\entries_vocationTrainer.html" afterPath="" />
+      <change type="MOVED" beforePath="C:\Users\sandro\Documents\GitHub\WorkingDiary\src\main\resources\assets\entry\entries_vocationTrainer.html" afterPath="$PROJECT_DIR$/src/main/resources/assets/entry/entries_trainers.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/main/ch/css/workingdiary/representation/Entry.class" afterPath="$PROJECT_DIR$/build/classes/main/ch/css/workingdiary/representation/Entry.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/main/ch/css/workingdiary/dao/EntryDao.class" afterPath="$PROJECT_DIR$/build/classes/main/ch/css/workingdiary/dao/EntryDao.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/main/ch/css/workingdiary/resource/EntryResource.class" afterPath="$PROJECT_DIR$/build/classes/main/ch/css/workingdiary/resource/EntryResource.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/test/ch/css/workingdiary/entry/EntryResourceShould$1.class" afterPath="$PROJECT_DIR$/build/classes/test/ch/css/workingdiary/entry/EntryResourceShould$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/test/ch/css/workingdiary/entry/EntryResourceShould$2.class" afterPath="$PROJECT_DIR$/build/classes/test/ch/css/workingdiary/entry/EntryResourceShould$2.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/test/ch/css/workingdiary/entry/EntryResourceShould.class" afterPath="$PROJECT_DIR$/build/classes/test/ch/css/workingdiary/entry/EntryResourceShould.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/main/ch/css/workingdiary/service/EntryService.class" afterPath="$PROJECT_DIR$/build/classes/main/ch/css/workingdiary/service/EntryService.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/test/ch/css/workingdiary/entry/EntryServiceShould.class" afterPath="$PROJECT_DIR$/build/classes/test/ch/css/workingdiary/entry/EntryServiceShould.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/main/ch/css/workingdiary/service/UserService.class" afterPath="$PROJECT_DIR$/build/classes/main/ch/css/workingdiary/service/UserService.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/test/ch/css/workingdiary/user/UserServiceShould.class" afterPath="$PROJECT_DIR$/build/classes/test/ch/css/workingdiary/user/UserServiceShould.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ch/css/workingdiary/representation/Entry.java" afterPath="$PROJECT_DIR$/src/main/java/ch/css/workingdiary/representation/Entry.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ch/css/workingdiary/dao/EntryDao.java" afterPath="$PROJECT_DIR$/src/main/java/ch/css/workingdiary/dao/EntryDao.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ch/css/workingdiary/resource/EntryResource.java" afterPath="$PROJECT_DIR$/src/main/java/ch/css/workingdiary/resource/EntryResource.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ch/css/workingdiary/util/Role.java" afterPath="$PROJECT_DIR$/src/main/java/ch/css/workingdiary/util/Role.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ch/css/workingdiary/dao/UserDao.java" afterPath="$PROJECT_DIR$/src/main/java/ch/css/workingdiary/dao/UserDao.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ch/css/workingdiary/resource/UserResource.java" afterPath="$PROJECT_DIR$/src/main/java/ch/css/workingdiary/resource/UserResource.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/test/ch/css/workingdiary/user/UserResourceShould.java" afterPath="$PROJECT_DIR$/src/main/test/ch/css/workingdiary/user/UserResourceShould.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ch/css/workingdiary/service/UserService.java" afterPath="$PROJECT_DIR$/src/main/java/ch/css/workingdiary/service/UserService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/test/ch/css/workingdiary/user/UserServiceShould.java" afterPath="$PROJECT_DIR$/src/main/test/ch/css/workingdiary/user/UserServiceShould.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sql/createTables.sql" afterPath="$PROJECT_DIR$/sql/createTables.sql" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/test/ch/css/workingdiary/entry/EntryResourceShould.java" afterPath="$PROJECT_DIR$/src/main/test/ch/css/workingdiary/entry/EntryResourceShould.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ch/css/workingdiary/service/EntryService.java" afterPath="$PROJECT_DIR$/src/main/java/ch/css/workingdiary/service/EntryService.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/test/ch/css/workingdiary/entry/EntryServiceShould.java" afterPath="$PROJECT_DIR$/src/main/test/ch/css/workingdiary/entry/EntryServiceShould.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/resources/main/assets/entry/entries.html" afterPath="$PROJECT_DIR$/build/resources/main/assets/entry/entries.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/assets/entry/entries.html" afterPath="$PROJECT_DIR$/src/main/resources/assets/entry/entries.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/resources/main/assets/entry/entry.js" afterPath="$PROJECT_DIR$/build/resources/main/assets/entry/entry.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/assets/entry/entry.js" afterPath="$PROJECT_DIR$/src/main/resources/assets/entry/entry.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/assets/style/layout.css" afterPath="$PROJECT_DIR$/src/main/resources/assets/style/layout.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/resources/main/assets/menu/menu.html" afterPath="$PROJECT_DIR$/build/resources/main/assets/menu/menu.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/assets/menu/menu.html" afterPath="$PROJECT_DIR$/src/main/resources/assets/menu/menu.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/resources/main/assets/route/route.js" afterPath="$PROJECT_DIR$/build/resources/main/assets/route/route.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/assets/route/route.js" afterPath="$PROJECT_DIR$/src/main/resources/assets/route/route.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/resources/main/assets/user/user.js" afterPath="$PROJECT_DIR$/build/resources/main/assets/user/user.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/assets/user/user.js" afterPath="$PROJECT_DIR$/src/main/resources/assets/user/user.js" />
@@ -61,8 +62,18 @@
       <file leaf-file-name="entry.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/resources/assets/entry/entry.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="102" max-vertical-offset="1802">
-              <caret line="28" column="0" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="510" max-vertical-offset="2601">
+              <caret line="72" column="99" selection-start-line="72" selection-start-column="99" selection-end-line="72" selection-end-column="99" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="print.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/assets/style/print.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="136">
+              <caret line="0" column="8" selection-start-line="0" selection-start-column="8" selection-end-line="0" selection-end-column="8" />
               <folding />
             </state>
           </provider>
@@ -71,8 +82,38 @@
       <file leaf-file-name="menu.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/resources/assets/menu/menu.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-5.8846154" vertical-offset="0" max-vertical-offset="255">
-              <caret line="9" column="6" selection-start-line="9" selection-start-column="6" selection-end-line="9" selection-end-column="6" />
+            <state vertical-scroll-proportion="-2.1636364" vertical-offset="17" max-vertical-offset="374">
+              <caret line="8" column="106" selection-start-line="8" selection-start-column="106" selection-end-line="8" selection-end-column="106" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/assets/index.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="14.384615" vertical-offset="459" max-vertical-offset="1139">
+              <caret line="5" column="104" selection-start-line="5" selection-start-column="4" selection-end-line="5" selection-end-column="104" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="entries.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/assets/entry/entries.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-5.2545457" vertical-offset="0" max-vertical-offset="799">
+              <caret line="17" column="33" selection-start-line="17" selection-start-column="33" selection-end-line="17" selection-end-column="33" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="user.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/assets/user/user.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.7820823" vertical-offset="0" max-vertical-offset="1904">
+              <caret line="19" column="28" selection-start-line="19" selection-start-column="28" selection-end-line="19" selection-end-column="28" />
               <folding />
             </state>
           </provider>
@@ -81,31 +122,19 @@
       <file leaf-file-name="route.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/resources/assets/route/route.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="578">
-              <caret line="22" column="50" selection-start-line="22" selection-start-column="50" selection-end-line="22" selection-end-column="50" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="986">
+              <caret line="13" column="60" selection-start-line="13" selection-start-column="60" selection-end-line="13" selection-end-column="60" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="user.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/assets/user/user.js">
+      <file leaf-file-name="layout.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/assets/style/layout.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="306" max-vertical-offset="1921">
-              <caret line="29" column="53" selection-start-line="29" selection-start-column="53" selection-end-line="29" selection-end-column="53" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="442">
+              <caret line="20" column="0" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="EntryResource.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/ch/css/workingdiary/resource/EntryResource.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.7105263" vertical-offset="578" max-vertical-offset="1479">
-              <caret line="63" column="69" selection-start-line="63" selection-start-column="69" selection-end-line="63" selection-end-column="69" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -554,25 +583,16 @@
         <option value="$PROJECT_DIR$/src/main/test/ch/css/workingdiary/user/UserDao.java" />
         <option value="$PROJECT_DIR$/src/main/java/ch/css/workingdiary/WorkingDiaryConfiguration.java" />
         <option value="$PROJECT_DIR$/src/main/java/ch/css/workingdiary/dao/mapper/UserAuthenticationMapper.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/assets/style/layout.css" />
         <option value="$PROJECT_DIR$/src/main/resources/assets/user/signin.html" />
         <option value="$PROJECT_DIR$/src/main/java/ch/css/workingdiary/WorkingDiaryApp.java" />
         <option value="$PROJECT_DIR$/src/main/java/ch/css/workingdiary/security/WorkingDiaryAuthenticator.java" />
         <option value="$PROJECT_DIR$/src/main/resources/assets/app.js" />
         <option value="$PROJECT_DIR$/src/main/java/ch/css/workingdiary/dao/mapper/UserMapper.java" />
         <option value="$PROJECT_DIR$/src/main/test/ch/css/workingdiary/user/UserShould.java" />
-        <option value="$PROJECT_DIR$/src/main/test/ch/css/workingdiary/entry/EntryResourceShould.java" />
         <option value="$PROJECT_DIR$/src/main/java/ch/css/workingdiary/representation/User.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/assets/index.html" />
         <option value="$PROJECT_DIR$/src/main/resources/assets/entry/entries_vocationTrainer.html" />
-        <option value="$PROJECT_DIR$/src/main/java/ch/css/workingdiary/dao/EntryDao.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ch/css/workingdiary/service/EntryService.java" />
         <option value="$PROJECT_DIR$/src/main/java/ch/css/workingdiary/dao/mapper/EntryMapper.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ch/css/workingdiary/representation/Entry.java" />
-        <option value="$PROJECT_DIR$/src/main/test/ch/css/workingdiary/entry/EntryServiceShould.java" />
         <option value="$PROJECT_DIR$/src/main/java/ch/css/workingdiary/service/Service.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/assets/user/user.js" />
-        <option value="$PROJECT_DIR$/src/main/resources/assets/entry/entries.html" />
         <option value="$PROJECT_DIR$/sql/createTables.sql" />
         <option value="$PROJECT_DIR$/src/main/java/ch/css/workingdiary/dao/mapper/UserClientMapper.java" />
         <option value="$PROJECT_DIR$/src/main/java/ch/css/workingdiary/dao/UserDao.java" />
@@ -580,19 +600,30 @@
         <option value="$PROJECT_DIR$/src/main/java/ch/css/workingdiary/resource/UserResource.java" />
         <option value="$PROJECT_DIR$/src/main/test/ch/css/workingdiary/user/UserServiceShould.java" />
         <option value="$PROJECT_DIR$/src/main/test/ch/css/workingdiary/user/UserResourceShould.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/assets/route/route.js" />
-        <option value="$PROJECT_DIR$/src/main/resources/assets/menu/menu.html" />
-        <option value="$PROJECT_DIR$/src/main/java/ch/css/workingdiary/resource/EntryResource.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/assets/entry/entry.js" />
         <option value="$PROJECT_DIR$/src/main/java/ch/css/workingdiary/service/UserService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ch/css/workingdiary/dao/EntryDao.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ch/css/workingdiary/service/EntryService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ch/css/workingdiary/representation/Entry.java" />
+        <option value="$PROJECT_DIR$/src/main/test/ch/css/workingdiary/entry/EntryServiceShould.java" />
+        <option value="$PROJECT_DIR$/src/main/test/ch/css/workingdiary/entry/EntryResourceShould.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ch/css/workingdiary/resource/EntryResource.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/assets/index.html" />
+        <option value="$PROJECT_DIR$/src/main/resources/assets/style/print.css.html" />
+        <option value="$PROJECT_DIR$/src/main/resources/assets/menu/menu.html" />
+        <option value="$PROJECT_DIR$/src/main/resources/assets/route/route.js" />
+        <option value="$PROJECT_DIR$/src/main/resources/assets/entry/entries.html" />
+        <option value="$PROJECT_DIR$/src/main/resources/assets/style/layout.css" />
+        <option value="$PROJECT_DIR$/src/main/resources/assets/entry/entry.js" />
+        <option value="$PROJECT_DIR$/src/main/resources/assets/style/print.css" />
+        <option value="$PROJECT_DIR$/src/main/resources/assets/user/user.js" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="1358" />
-    <option name="y" value="-8" />
-    <option name="width" value="1936" />
-    <option name="height" value="1176" />
+    <option name="x" value="1" />
+    <option name="y" value="1" />
+    <option name="width" value="1364" />
+    <option name="height" value="726" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -831,7 +862,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="user" />
+              <option name="myItemId" value="style" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -1051,40 +1082,6 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="workingdiary" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="dao" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="mapper" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="WorkingDiary" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="WorkingDiary" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="sql" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -1117,7 +1114,7 @@
     <property name="recentsLimit" value="5" />
     <property name="dynamic.classpath" value="false" />
     <property name="SearchEverywhereHistoryKey" value="check&#9;ACTION&#9;ActivateCheckStyleToolWindow&#10;grad&#9;ACTION&#9;ActivateGradleToolWindow" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../angularjs/temp" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../angularjs/app" />
     <property name="FullScreen" value="false" />
     <property name="OverrideImplement.combined" value="true" />
     <property name="OverrideImplement.overriding.sorted" value="false" />
@@ -1135,6 +1132,7 @@
       <recent name="ch.css.workingdiary.representation" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\sandro\Documents\GitHub\WorkingDiary\src\main\resources\assets\entry" />
       <recent name="C:\Users\sandro\Documents\GitHub\WorkingDiary\src\main\resources\fixtures\serialize" />
       <recent name="C:\Users\sandro\Documents\GitHub\WorkingDiary\src\main\resources\assets\menu" />
       <recent name="C:\Users\sandro\Documents\GitHub\WorkingDiary" />
@@ -1394,7 +1392,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="1358" y="-8" width="1936" height="1176" extended-state="6" />
+    <frame x="1" y="1" width="1364" height="726" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -1408,11 +1406,11 @@
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3683224" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.28525123" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="CheckStyle" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32942328" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.1796875" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25593472" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.20416667" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -1475,8 +1473,14 @@
           <properties />
           <option name="timeStamp" value="59" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/ch/css/workingdiary/resource/EntryResource.java</url>
+          <line>84</line>
+          <properties />
+          <option name="timeStamp" value="60" />
+        </line-breakpoint>
       </breakpoints>
-      <option name="time" value="60" />
+      <option name="time" value="61" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -1497,22 +1501,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.toastshaman/dropwizard-auth-jwt/0.7.1-0/5b553e9d82cb132d6ced121b5baa41829b1af908/dropwizard-auth-jwt-0.7.1-0-sources.jar!/com/github/toastshaman/dropwizard/auth/jwt/JsonWebTokenValidator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.4" vertical-offset="0" max-vertical-offset="680">
-          <caret line="16" column="9" selection-start-line="16" selection-start-column="9" selection-end-line="16" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.eclipse.jetty/jetty-servlet/9.0.7.v20131107/859f98038a08014a5f33374fdb80d8f74e554698/jetty-servlet-9.0.7.v20131107-sources.jar!/org/eclipse/jetty/servlet/ServletHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="23664" max-vertical-offset="26214">
-          <caret line="1522" column="0" selection-start-line="1522" selection-start-column="0" selection-end-line="1522" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.dropwizard/dropwizard-auth/0.7.1/f2b29cff6ab4fa2e0f1ac7dcb0aae08633d67e9f/dropwizard-auth-0.7.1-sources.jar!/io/dropwizard/auth/Auth.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="88" max-vertical-offset="442">
@@ -1566,14 +1554,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="3248" max-vertical-offset="5253">
           <caret line="248" column="0" selection-start-line="248" selection-start-column="0" selection-end-line="248" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/assets/style/layout.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="272">
-          <caret line="10" column="1" selection-start-line="10" selection-start-column="1" selection-end-line="10" selection-end-column="1" />
           <folding />
         </state>
       </provider>
@@ -1644,14 +1624,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/assets/entry/newentry.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-24.846153" vertical-offset="0" max-vertical-offset="867">
-          <caret line="38" column="93" selection-start-line="38" selection-start-column="93" selection-end-line="38" selection-end-column="93" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/ch/css/workingdiary/WorkingDiaryConfiguration.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="561">
@@ -1670,62 +1642,6 @@
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ch/css/workingdiary/representation/Entry.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="126" max-vertical-offset="1428">
-          <caret line="36" column="27" selection-start-line="36" selection-start-column="27" selection-end-line="36" selection-end-column="27" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1391#1392#0" expanded="true" />
-            <element signature="e#1441#1442#0" expanded="true" />
-            <element signature="e#1470#1471#0" expanded="true" />
-            <element signature="e#1495#1496#0" expanded="true" />
-            <element signature="e#1527#1528#0" expanded="true" />
-            <element signature="e#1555#1556#0" expanded="true" />
-            <element signature="e#1589#1590#0" expanded="true" />
-            <element signature="e#1619#1620#0" expanded="true" />
-            <element signature="e#1655#1656#0" expanded="true" />
-            <element signature="e#1685#1686#0" expanded="true" />
-            <element signature="e#1717#1718#0" expanded="true" />
-            <element signature="e#1745#1746#0" expanded="true" />
-            <element signature="e#1776#1777#0" expanded="true" />
-            <element signature="e#1805#1806#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/assets/menu/menu.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="357">
-          <caret line="11" column="47" selection-start-line="11" selection-start-column="47" selection-end-line="11" selection-end-column="47" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ch/css/workingdiary/dao/EntryDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="595">
-          <caret line="36" column="57" selection-start-line="36" selection-start-column="57" selection-end-line="36" selection-end-column="57" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/assets/app.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="136">
-          <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/assets/entry/entries.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-24.846153" vertical-offset="0" max-vertical-offset="748">
-          <caret line="38" column="6" selection-start-line="38" selection-start-column="6" selection-end-line="38" selection-end-column="6" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1781,14 +1697,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/assets/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-16.346153" vertical-offset="153" max-vertical-offset="1139">
-          <caret line="34" column="67" selection-start-line="34" selection-start-column="67" selection-end-line="34" selection-end-column="67" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/ch/css/workingdiary/util/Role.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="408">
@@ -1810,22 +1718,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ch/css/workingdiary/service/EntryService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="100" max-vertical-offset="714">
-          <caret line="43" column="0" selection-start-line="43" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
-          <folding>
-            <element signature="e#1239#1240#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/junit/junit/4.11/28e0ad201304e4a4abf999ca0570b7cffc352c3c/junit-4.11-sources.jar!/org/junit/runners/model/FrameworkMethod.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="391" max-vertical-offset="3026">
           <caret line="46" column="0" selection-start-line="46" selection-start-column="0" selection-end-line="46" selection-end-column="0" />
           <folding>
-            <element signature="e#1511#1512#0" expanded="true" />
+            <element signature="e#1511#1512#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1838,25 +1736,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ch/css/workingdiary/resource/UserResource.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="489" max-vertical-offset="1428">
-          <caret line="68" column="23" selection-start-line="68" selection-start-column="12" selection-end-line="68" selection-end-column="23" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/test/ch/css/workingdiary/user/UserResourceShould.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1853" max-vertical-offset="2805">
-          <caret line="150" column="0" selection-start-line="150" selection-start-column="0" selection-end-line="150" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/assets/entry/entries_vocationTrainer.html">
+    <entry file="file://$PROJECT_DIR$/src/main/resources/assets/entry/entries_trainers.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-15.038462" vertical-offset="0" max-vertical-offset="561">
           <caret line="23" column="22" selection-start-line="23" selection-start-column="22" selection-end-line="23" selection-end-column="22" />
@@ -1871,30 +1751,6 @@
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/assets/route/route.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="578">
-          <caret line="22" column="50" selection-start-line="22" selection-start-column="50" selection-end-line="22" selection-end-column="50" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/assets/menu/menu.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5.8846154" vertical-offset="0" max-vertical-offset="255">
-          <caret line="9" column="6" selection-start-line="9" selection-start-column="6" selection-end-line="9" selection-end-column="6" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/assets/user/user.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="306" max-vertical-offset="1921">
-          <caret line="29" column="53" selection-start-line="29" selection-start-column="53" selection-end-line="29" selection-end-column="53" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1922,37 +1778,171 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ch/css/workingdiary/representation/Entry.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="442" max-vertical-offset="1241">
+          <caret line="53" column="49" selection-start-line="53" selection-start-column="49" selection-end-line="53" selection-end-column="49" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1518#1519#0" expanded="true" />
+            <element signature="e#1574#1575#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ch/css/workingdiary/service/EntryService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="51" max-vertical-offset="748">
+          <caret line="37" column="41" selection-start-line="37" selection-start-column="41" selection-end-line="37" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ch/css/workingdiary/dao/EntryDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="646">
+          <caret line="41" column="0" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ch/css/workingdiary/resource/UserResource.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="389" max-vertical-offset="1428">
+          <caret line="61" column="50" selection-start-line="61" selection-start-column="50" selection-end-line="61" selection-end-column="50" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ch/css/workingdiary/resource/EntryResource.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="833" max-vertical-offset="1734">
+          <caret line="94" column="5" selection-start-line="94" selection-start-column="5" selection-end-line="94" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/assets/entry/updateentry.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-18.961538" vertical-offset="0" max-vertical-offset="867">
+          <caret line="29" column="26" selection-start-line="29" selection-start-column="26" selection-end-line="29" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/test/ch/css/workingdiary/entry/EntryServiceShould.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="425" max-vertical-offset="1071">
-          <caret line="71" column="35" selection-start-line="71" selection-start-column="35" selection-end-line="71" selection-end-column="35" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="544" max-vertical-offset="1190">
+          <caret line="80" column="100" selection-start-line="80" selection-start-column="100" selection-end-line="80" selection-end-column="100" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/assets/entry/newentry.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-17.307692" vertical-offset="196" max-vertical-offset="867">
+          <caret line="38" column="93" selection-start-line="38" selection-start-column="93" selection-end-line="38" selection-end-column="93" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/test/ch/css/workingdiary/user/UserResourceShould.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1856" max-vertical-offset="2805">
+          <caret line="150" column="0" selection-start-line="150" selection-start-column="0" selection-end-line="150" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/assets/menu/menu.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="357">
+          <caret line="13" column="6" selection-start-line="13" selection-start-column="6" selection-end-line="13" selection-end-column="6" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/test/ch/css/workingdiary/entry/EntryResourceShould.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6996904" vertical-offset="58" max-vertical-offset="1768">
-          <caret line="50" column="0" selection-start-line="50" selection-start-column="0" selection-end-line="50" selection-end-column="0" />
+        <state vertical-scroll-proportion="1.1850961" vertical-offset="1870" max-vertical-offset="2516">
+          <caret line="159" column="56" selection-start-line="159" selection-start-column="56" selection-end-line="159" selection-end-column="56" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/assets/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.079254076" vertical-offset="0" max-vertical-offset="429">
+          <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/assets/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="14.384615" vertical-offset="459" max-vertical-offset="1139">
+          <caret line="5" column="104" selection-start-line="5" selection-start-column="4" selection-end-line="5" selection-end-column="104" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/assets/style/layout.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="442">
+          <caret line="20" column="0" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/assets/menu/menu.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-2.1636364" vertical-offset="17" max-vertical-offset="374">
+          <caret line="8" column="106" selection-start-line="8" selection-start-column="106" selection-end-line="8" selection-end-column="106" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/assets/style/print.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="387">
+          <caret line="0" column="8" selection-start-line="0" selection-start-column="8" selection-end-line="0" selection-end-column="8" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/assets/entry/entry.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="102" max-vertical-offset="1802">
-          <caret line="28" column="0" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="867" max-vertical-offset="2601">
+          <caret line="72" column="99" selection-start-line="72" selection-start-column="99" selection-end-line="72" selection-end-column="99" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ch/css/workingdiary/resource/EntryResource.java">
+    <entry file="file://$PROJECT_DIR$/src/main/resources/assets/entry/entries.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7105263" vertical-offset="578" max-vertical-offset="1479">
-          <caret line="63" column="69" selection-start-line="63" selection-start-column="69" selection-end-line="63" selection-end-column="69" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state vertical-scroll-proportion="-5.2545457" vertical-offset="0" max-vertical-offset="799">
+          <caret line="17" column="33" selection-start-line="17" selection-start-column="33" selection-end-line="17" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/assets/route/route.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="986">
+          <caret line="13" column="60" selection-start-line="13" selection-start-column="60" selection-end-line="13" selection-end-column="60" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/assets/user/user.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.7820823" vertical-offset="0" max-vertical-offset="1904">
+          <caret line="19" column="28" selection-start-line="19" selection-start-column="28" selection-end-line="19" selection-end-column="28" />
+          <folding />
         </state>
       </provider>
     </entry>

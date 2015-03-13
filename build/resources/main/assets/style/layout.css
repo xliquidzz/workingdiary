@@ -9,3 +9,13 @@ html, body {
     top: 50%;
     left: 50%;
 }
+
+button, .btn, .btn-navbar, .btn-primary {
+    margin-right: 5px;
+}
+
+@media print {
+    button {
+        display: none;
+    }
+}

@@ -1,0 +1,28 @@
+<div class="container">
+    <div class="row">
+        <div class="list-group col-md-3">
+            <div ng-repeat="user in users">
+                <a ng-click="setEntries(user.id)" class="list-group-item" href="">
+                    {{user.username}}
+                </a>
+            </div>
+        </div>
+        <div class="list-group col-md-3">
+            <div ng-repeat="entry in entries | orderBy : 'created' : true">
+                <a ng-click="setDetailedEntry(entry)" class="list-group-item" href="">
+                    {{entry.title}} <span class="pull-right">{{ entry.created | date: 'dd.MM.yy' }}</span>
+                </a>
+            </div>
+        </div>
+        <div class="panel panel-default col-md-6" ng-hide="detailedEntry === undefined">
+            <div class="panel-body">
+                <div class="row">
+                    <h3 class="col-md-12">{{ detailedEntry.title }} <small class="pull-right">{{ detailedEntry.created | date: 'dd.MM.yy' }}</small></h3>
+                </div>
+                <div class="row">
+                    <p class="col-md-12">{{ detailedEntry.message }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

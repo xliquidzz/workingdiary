@@ -1,10 +1,17 @@
 <nav class="navbar navbar-default">
     <div class="navbar-header">
         <div class="nav navbar-nav">
-            <a class="navbar-brand" href="#/apprentice/entry">Working Diary</a>
-            <li ng-class="{ active: isActive('/create/entry') }" ng-show="roleId == 1"><a href="#/create/entry">Neuer Eintrag</a></li>
-            <li ng-class="{ active: isActive('/trainer/apprentice') }" ng-show="roleId == 2"><a href="#/trainer/apprentice">Meine Lernenden</a></li>
-            <li ng-class="{ active: isActive('/all/apprentice') }" ng-show="roleId == 3"><a href="#/all/apprentice">Alle Lernenden</a></li>
+            <a class="navbar-brand" href="#/">Working Diary</a>
+            <li ng-class="{ active: isActive('/apprentice/create/entry') }" ng-show="roleId == 1">
+                <a href="#/apprentice/create/entry">Neuer Eintrag</a>
+            </li>
+            <!--<li ng-class="{ active: isActive('/trainer/apprentices') }" ng-show="roleId == 2"><a href="#/trainer/apprentice">Meine Lernenden</a></li>-->
+            <li ng-class="{ active: isActive('/vocation-trainer/all/apprentice') }" ng-show="roleId == 3">
+                <a href="#/vocation-trainer/all/apprentice">Alle Lernenden</a>
+            </li>
         </div>
     </div>
+    <button ng-hide="roleId == undefined" type="button" class="pull-right navbar-right btn navbar-btn btn-primary" ng-click="signOut()">
+        <span class="glyphicon glyphicon-off"></span>
+    </button>
 </nav>
