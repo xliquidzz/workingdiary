@@ -16,6 +16,7 @@ import java.util.List;
  */
 @RegisterMapper(EntryMapper.class)
 public interface EntryDao {
+
     @GetGeneratedKeys
     @SqlUpdate("INSERT INTO entry (id, title, message, created, draft, fk_userId) VALUES (NULL, :title, :message, NOW(), :draft, :userId)")
     long create(@Bind("title") final String title,
@@ -38,4 +39,7 @@ public interface EntryDao {
 
     @SqlUpdate("UPDATE entry SET title = :title, message = :message WHERE id = :entryId")
     void updateById(@Bind("entryId") final long entryId, @Bind("title") final String title, @Bind("message") final String message);
+
+    @SqlUpdate("delete from entry where fk_userId = :userId")
+    void deleteUserReferenceToEntry(@Bind("userId") final long userId);
 }

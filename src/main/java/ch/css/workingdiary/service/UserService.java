@@ -1,5 +1,6 @@
 package ch.css.workingdiary.service;
 
+import ch.css.workingdiary.WorkingDiaryApp;
 import ch.css.workingdiary.dao.UserDao;
 import ch.css.workingdiary.representation.User;
 import com.github.toastshaman.dropwizard.auth.jwt.hmac.HmacSHA512Signer;
@@ -21,15 +22,18 @@ import static java.util.Collections.singletonMap;
 public class UserService implements Service {
 
     private final UserDao userDao;
+    private final EntryService entryService;
     private byte[] tokenSecret;
 
     public UserService(final UserDao userDao, final byte[] tokenSecret) {
         this.userDao = userDao;
         this.tokenSecret = tokenSecret;
+        this.entryService = WorkingDiaryApp.getService(EntryService.class);
     }
 
     public UserService(final UserDao userDao) {
         this.userDao = userDao;
+        this.entryService = WorkingDiaryApp.getService(EntryService.class);
     }
 
     public Optional<User> getUserByName(final String username) {
@@ -76,5 +80,11 @@ public class UserService implements Service {
     public Optional<List<User>> getUsersWithTrainerId(final long trainerId) {
         final List<User> users = userDao.getUsersWithTrainerId(trainerId);
         return Optional.of(users);
+    }
+
+    public void deleteById(final long userId) {
+        userDao.deleteApprenticeReferenceToTrainer(userId);
+        entryService.deleteEntriesByUserId(userId);
+        userDao.deleteById(userId);
     }
 }

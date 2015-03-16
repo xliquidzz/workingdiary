@@ -77,4 +77,14 @@ public class UserResource {
         }
         return Response.status(Response.Status.UNAUTHORIZED).build();
     }
+
+    @DELETE
+    @Path("/{userId}")
+    public Response deleteUserById(@PathParam("userId") final long userId, @Auth final User user) {
+        if (user.getRoleId() == Role.VOCATION_TRAINER.getRoleId()) {
+            userService.deleteById(userId);
+            return Response.noContent().build();
+        }
+        return Response.status(Response.Status.UNAUTHORIZED).build();
+    }
 }

@@ -1,4 +1,4 @@
-var entry = angular.module('entryModule', ['ngResource', 'ngSanitize']);
+var entry = angular.module('entryModule', ['ngResource', 'ngSanitize', 'textAngular']);
 
 entry.controller('newEntryController', ['$scope', 'entryService', function($scope, entryService){
 
@@ -72,7 +72,7 @@ entry.controller('entryController', ['$scope', '$location','entryService', funct
       popupWin.document.open();
       popupWin.document.write('<html><head><link rel="stylesheet" type="text/css" href="style/print.css"/><link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css"></head><body onload="window.print()">' + printContents + '</html>');
       popupWin.document.close();
-    }
+    };
 }]);
 
 entry.controller('trainerEntryController', ['$scope', 'entryService', 'users', function($scope, entryService, users) {
@@ -87,6 +87,13 @@ entry.controller('trainerEntryController', ['$scope', 'entryService', 'users', f
         $scope.detailedEntry = entry || '';
     };
 
+    $scope.printDetailedEntry = function(divName) {
+        var printContents = document.getElementById('entryToPrint').innerHTML;
+        var popupWin = window.open('', '_blank', 'width=1000,height=600');
+        popupWin.document.open();
+        popupWin.document.write('<html><head><link rel="stylesheet" type="text/css" href="style/print.css"/><link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css"></head><body onload="window.print()">' + printContents + '</html>');
+        popupWin.document.close();
+    }
 }]);
 
 entry.controller('vocationTrainerEntryController', ['$scope', '$http','entryService', function($scope, $http, entryService){

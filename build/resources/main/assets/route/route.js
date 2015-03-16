@@ -34,6 +34,15 @@ route.config(['$routeProvider', function ($routeProvider) {
         templateUrl: 'entry/entries_trainers.html',
         controller: 'vocationTrainerEntryController'
     })
+    .when('/vocation-trainer/user-admin', {
+        templateUrl: 'user/user_admin.html',
+        controller: 'userAdminController',
+        resolve: {
+            apprentices: ['loginService', function(loginService) {
+                return loginService.getApprentices();
+            }]
+        }
+    })
     .when('/trainer/apprentices', {
         templateUrl: 'entry/entries_trainers.html',
         controller: 'trainerEntryController',

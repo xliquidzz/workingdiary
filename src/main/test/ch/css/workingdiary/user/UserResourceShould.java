@@ -174,4 +174,16 @@ public class UserResourceShould {
 
         assertThat(response.getStatus()).isEqualTo(401);
     }
+
+/*    @Test
+    public void deleteUserById() {
+        final Client client = new Client();
+
+        final ClientResponse response = client.resource(String.format("http://localhost:%d/api/entry/" + expected.getId(), RULE.getLocalPort()))
+                .header("Authorization", validToken)
+                .accept(MediaType.APPLICATION_JSON)
+                .type(MediaType.APPLICATION_JSON)
+                .put(ClientResponse.class, expected);
+
+        assertThat(response.getStatus()).isEqualTo(204);*/
 }

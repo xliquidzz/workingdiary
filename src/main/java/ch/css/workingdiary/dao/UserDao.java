@@ -5,6 +5,7 @@ import ch.css.workingdiary.dao.mapper.UserMapper;
 import ch.css.workingdiary.representation.User;
 import org.skife.jdbi.v2.sqlobject.Bind;
 import org.skife.jdbi.v2.sqlobject.SqlQuery;
+import org.skife.jdbi.v2.sqlobject.SqlUpdate;
 import org.skife.jdbi.v2.sqlobject.customizers.Mapper;
 import org.skife.jdbi.v2.sqlobject.customizers.RegisterMapper;
 
@@ -28,4 +29,11 @@ public interface UserDao {
     @Mapper(UserDisplayMapper.class)
     @SqlQuery("select id, username, firstname, lastname, fk_roleId from user u, apprentice_trainer at where at.trainerId = :trainerId AND u.id = at.apprenticeId;")
     List<User> getUsersWithTrainerId(@Bind("trainerId") final long trainerId);
+
+    @Mapper(UserDisplayMapper.class)
+    @SqlUpdate("delete from user where id = :userId")
+    void deleteById(@Bind("userId") final long userId);
+
+    @SqlUpdate("delete from apprentice_trainer where apprenticeId = :userId")
+    void deleteApprenticeReferenceToTrainer(@Bind("userId") final long userId);
 }

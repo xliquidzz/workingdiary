@@ -9,6 +9,9 @@
             <li ng-class="{ active: isActive('/vocation-trainer/all/apprentice') }" ng-show="roleId == 3">
                 <a href="#/vocation-trainer/all/apprentice">Alle Lernenden</a>
             </li>
+            <li ng-class="{ active: isActive('/vocation-trainer/user-admin') }" ng-show="roleId == 3">
+                <a href="#/vocation-trainer/user-admin">User Admin</a>
+            </li>
         </div>
     </div>
     <button ng-hide="roleId == undefined" type="button" class="pull-right navbar-right btn navbar-btn btn-primary" ng-click="signOut()">

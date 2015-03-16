@@ -18,6 +18,7 @@ user.controller('loginController', ['$scope', '$resource', '$window', '$location
         $window.localStorage.removeItem('Authorization');
         delete $scope.roleId;
         $location.path('/');
+        showSignIn();
     }
 
      $scope.signIn = function() {
@@ -31,8 +32,9 @@ user.controller('loginController', ['$scope', '$resource', '$window', '$location
                 var roleId = loginService.getRoleId()
                 .$promise.then(function (success) {
                         $scope.roleId = success.roleId;
+                        $scope.loginAlert = '';
                         $('.bs-example-modal-md').modal('hide');
-                        if($location.path('/')) {
+                        if($location.path() == '/') {
                             $route.reload();
                         }
                     }
@@ -51,7 +53,7 @@ user.controller('loginController', ['$scope', '$resource', '$window', '$location
    roleId.$promise.then(
          function (success) {
             $scope.roleId = success.roleId;
-             $('.bs-example-modal-md').modal('hide');
+            $('.bs-example-modal-md').modal('hide');
          },
          function (error) {
              setTimeout(function() {
@@ -61,12 +63,38 @@ user.controller('loginController', ['$scope', '$resource', '$window', '$location
      );
 }]);
 
+user.controller('userAdminController', ['$scope', 'loginService', 'apprentices', function($scope, loginService, apprentices) {
+    $scope.selectedApprentice = {};
+    $scope.apprentices = apprentices;
+
+    $scope.setSelectedApprenticeId = function (apprenticeId) {
+        $scope.selectedApprentice.id = apprenticeId;
+    };
+
+    $scope.remove = function() {
+        loginService.removeById($scope.selectedApprentice.id);
+    };
+}]);
+
 user.service('loginService', ['$resource', '$q',function ($resource, $q) {
     return {
         isSignedIn: false,
         getRoleId: function () {
             var result = $resource('/api/user/get-role').get();
             return result;
+        },
+        getApprentices: function() {
+            var apprenticeRole = 1;
+            var result = $resource('/api/user/role/' + apprenticeRole);
+            return result.query().$promise.then(function(success) {
+                return success;
+            });
+        },
+        removeById: function(userId) {
+            var result = $resource('/api/user/' + userId);
+            return result.remove(userId).$promise.then(function(success) {
+                return success;
+            });
         }
     }
 }]);

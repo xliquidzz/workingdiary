@@ -110,4 +110,10 @@ public class UserServiceShould {
 
         verify(mockedUserDao, times(1)).getUsersWithTrainerId(trainerId);
     }
+
+    @Test
+    public void deleteEntryById() {
+        userService.deleteById(1);
+        verify(mockedUserDao, times(1)).deleteById(1);
+    }
 }
