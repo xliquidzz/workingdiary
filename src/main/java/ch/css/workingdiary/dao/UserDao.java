@@ -4,6 +4,7 @@ import ch.css.workingdiary.dao.mapper.UserDisplayMapper;
 import ch.css.workingdiary.dao.mapper.UserMapper;
 import ch.css.workingdiary.representation.User;
 import org.skife.jdbi.v2.sqlobject.Bind;
+import org.skife.jdbi.v2.sqlobject.GetGeneratedKeys;
 import org.skife.jdbi.v2.sqlobject.SqlQuery;
 import org.skife.jdbi.v2.sqlobject.SqlUpdate;
 import org.skife.jdbi.v2.sqlobject.customizers.Mapper;
@@ -36,4 +37,10 @@ public interface UserDao {
 
     @SqlUpdate("delete from apprentice_trainer where apprenticeId = :userId")
     void deleteApprenticeReferenceToTrainer(@Bind("userId") final long userId);
+
+
+    @GetGeneratedKeys
+    @SqlUpdate("insert into user (id, username, password, firstname, lastname, fk_roleId) values(NULL, :username, :password, :firstname, :lastname, :roleId)")
+    long create(@Bind("username") final String username, @Bind("password") final String password, @Bind("firstname") final String firstname,
+                @Bind("lastname") final String lastname, @Bind("roleId") final long rolId);
 }

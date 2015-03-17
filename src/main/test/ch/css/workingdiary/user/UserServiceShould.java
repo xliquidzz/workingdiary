@@ -3,6 +3,7 @@ package ch.css.workingdiary.user;
 import ch.css.workingdiary.dao.UserDao;
 import ch.css.workingdiary.representation.User;
 import ch.css.workingdiary.service.UserService;
+import ch.css.workingdiary.util.Role;
 import com.google.common.base.Optional;
 import org.junit.After;
 import org.junit.Before;
@@ -88,7 +89,7 @@ public class UserServiceShould {
 
     @Test
     public void returnAllApprenticeOfTrainer() {
-        List<User> expected = new ArrayList<>();
+        final List<User> expected = new ArrayList<>();
         final long trainerId = 1;
         for (long id = 1; id <= 10; id++) {
             expected.add(new User("testUser", id, 1));
@@ -110,6 +111,16 @@ public class UserServiceShould {
 
         verify(mockedUserDao, times(1)).getUsersWithTrainerId(trainerId);
     }
+
+    @Test
+    public void createNewUser() {
+        final User newUser = new User(1, "newApprentice", "secret","firstname", "lastname", Role.APPRENTICE.getRoleId());
+        when(mockedUserDao.create(anyString(), anyString(), anyString(), anyString(), anyLong())).thenReturn(newUser.getId());
+        final Optional optionalNewEntryId = userService.create(newUser);
+        assertThat(optionalNewEntryId.isPresent());
+        verify(mockedUserDao, times(1)).create("newApprentice", "secret", "firstname", "lastname", Role.APPRENTICE.getRoleId());
+    }
+
 
     @Test
     public void deleteEntryById() {

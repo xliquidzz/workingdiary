@@ -2,7 +2,9 @@ package ch.css.workingdiary.user;
 
 import ch.css.workingdiary.WorkingDiaryApp;
 import ch.css.workingdiary.WorkingDiaryConfiguration;
+import ch.css.workingdiary.representation.Entry;
 import ch.css.workingdiary.representation.User;
+import ch.css.workingdiary.util.Role;
 import com.google.common.base.Optional;
 import com.sun.jersey.api.client.Client;
 import com.sun.jersey.api.client.ClientResponse;
@@ -15,6 +17,7 @@ import org.junit.Test;
 import javax.ws.rs.core.MediaType;
 import java.util.List;
 import java.util.Map;
+import java.util.regex.Pattern;
 
 import static org.fest.assertions.api.Assertions.assertThat;
 import static org.fest.assertions.api.Assertions.extractProperty;
@@ -87,6 +90,26 @@ public class UserResourceShould {
         token = tokenMap.get("accessToken");
 
         validApprenticeToken = "bearer " + token;
+    }
+
+    @Test
+    public void createNewUser() {
+        final User newUser = new User(1, "new_Apprentice", "secret","firstname", "lastname", Role.APPRENTICE.getRoleId());
+        final Client client = new Client();
+
+        final ClientResponse response = client.resource(String.format("http://localhost:%d/api/user", RULE.getLocalPort()))
+                .header("Authorization", validVocationToken)
+                .accept(MediaType.APPLICATION_JSON)
+                .type(MediaType.APPLICATION_JSON)
+                .post(ClientResponse.class, newUser);
+
+        assertThat(response.getStatus()).isEqualTo(201);
+
+        assertThat(response.getHeaders().getFirst("Location")).matches(
+                Pattern.quote(
+                        String.format("http://localhost:%d/api/user/", RULE.getLocalPort())
+                ).concat("[0-9]+")
+        );
     }
 
     @Test

@@ -33,7 +33,10 @@ public class EntryResourceShould {
     @ClassRule
     public static final DropwizardAppRule<WorkingDiaryConfiguration> RULE = new DropwizardAppRule<WorkingDiaryConfiguration>(WorkingDiaryApp.class, CONFIG);
 
-    public static String validToken;
+    private static String validToken;
+
+    private long newEntryId;
+
 
     @BeforeClass
     public static void authenticate() {
@@ -131,7 +134,7 @@ public class EntryResourceShould {
 
         assertThat(response.getStatus()).isEqualTo(204);
     }
-    /*
+
     @Test
     public void deleteEntry() {
         final Client client = new Client();
@@ -145,7 +148,6 @@ public class EntryResourceShould {
 
         assertThat(response.getStatus()).isEqualTo(204);
     }
-    */
 
     @Test
     public void return401onUpdateEntry() {

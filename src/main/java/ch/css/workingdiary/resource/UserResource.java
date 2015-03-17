@@ -11,6 +11,8 @@ import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.util.List;
 import java.util.Map;
 
@@ -44,6 +46,19 @@ public class UserResource {
             }
         }
         return Response.status(Response.Status.FORBIDDEN).build();
+    }
+
+    @POST
+    public Response create(final User newUser, @Auth final User user) throws URISyntaxException {
+        if (user.getRoleId() == Role.VOCATION_TRAINER.getRoleId()) {
+            final Optional<Long> optionalNewUserId = userService.create(newUser);
+            if (optionalNewUserId.isPresent()) {
+                final Long newUserId = optionalNewUserId.get();
+                return Response.created(new URI(String.valueOf(newUserId))).build();
+            }
+            return Response.status(Response.Status.BAD_REQUEST).build();
+        }
+        return Response.status(Response.Status.UNAUTHORIZED).build();
     }
 
     @GET

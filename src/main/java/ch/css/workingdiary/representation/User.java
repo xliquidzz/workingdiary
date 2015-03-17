@@ -1,7 +1,10 @@
 package ch.css.workingdiary.representation;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import org.hibernate.validator.constraints.NotBlank;
 
 /**
  * Created by sandro on 09.03.2015.
@@ -10,6 +13,7 @@ public class User {
 
     private long id;
 
+    @NotBlank
     private String username;
 
     private String password;
@@ -32,11 +36,7 @@ public class User {
     @JsonCreator
     public User(@JsonProperty("username") final String username, @JsonProperty("password") final String password,
                 @JsonProperty("firstname") final String firstname, @JsonProperty("lastname") final String lastname, @JsonProperty("roleId") final long roleId) {
-        this.username = username;
-        this.password = password;
-        this.firstname = firstname;
-        this.lastname = lastname;
-        this.roleId = roleId;
+        this(0, username, password, firstname, lastname, roleId);
     }
 
     public User(final String username, final long id, final long roleId) {
@@ -50,7 +50,7 @@ public class User {
         this.password = password;
     }
 
-    public User(long id, String username, String firstname, String lastname, long roleId) {
+    public User(final long id, final String username, final String firstname, final String lastname, final long roleId) {
         this.id = id;
         this.username = username;
         this.firstname = firstname;

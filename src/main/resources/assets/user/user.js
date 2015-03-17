@@ -74,6 +74,21 @@ user.controller('userAdminController', ['$scope', 'loginService', 'apprentices',
     $scope.remove = function() {
         loginService.removeById($scope.selectedApprentice.id);
     };
+
+    $scope.roles = [{ role: "Lernender", id: 1 }, { role: "Praxisbildner", id: 2 }, { role: "Berufsbildner", id: 2 }];
+    $scope.selectedRole = $scope.roles[0];
+
+    $scope.createUser = function() {
+        $scope.newUser.roleId = $scope.selectedRole.id;
+        $scope.newUser.id = 0;
+        var result = loginService.createUser($scope.newUser);
+        result.$promise.then(function(success) {
+            $scope.userAdminAlert = '<div class="alert alert-success">The User has been successfully created.</div>';
+        },
+        function(error) {
+            $scope.userAdminAlert = '<div class="alert alert-danger">Something went wrong. There has an error occurred.</div>';
+        });
+    };
 }]);
 
 user.service('loginService', ['$resource', '$q',function ($resource, $q) {
@@ -95,6 +110,10 @@ user.service('loginService', ['$resource', '$q',function ($resource, $q) {
             return result.remove(userId).$promise.then(function(success) {
                 return success;
             });
+        },
+        createUser: function(newUser) {
+            var result = $resource('/api/user');
+            return result.save(newUser);
         }
     }
 }]);

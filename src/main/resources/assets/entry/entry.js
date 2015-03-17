@@ -21,7 +21,7 @@ entry.controller('newEntryController', ['$scope', 'entryService', function($scop
     };
 }]);
 
-entry.controller('updateEntryController', ['$scope', 'entryService', function($scope, entryService){
+entry.controller('updateEntryController', ['$scope', '$location', 'entryService', function($scope, $location, entryService){
     $scope.newEntry = {};
 
     var entryToUpdate = entryService.entryToUpdate;
@@ -35,7 +35,7 @@ entry.controller('updateEntryController', ['$scope', 'entryService', function($s
         newEntryId.$promise.then(
             function(success) {
                 $scope.alert = '<div class="alert alert-success">Your entry has been successfully updated.</div>';
-                $scope.reset();
+                $location.path('/');
             },
             function (error) {
                 $scope.alert = '<div class="alert alert-danger">Your entry could not be updated. There has been an Error.</div>';
@@ -66,7 +66,7 @@ entry.controller('entryController', ['$scope', '$location','entryService', funct
         $location.path('/apprentice/update/entry');
     };
 
-    $scope.printDetailedEntry = function(divName) {
+    $scope.printDetailedEntry = function() {
       var printContents = document.getElementById('entryToPrint').innerHTML;
       var popupWin = window.open('', '_blank', 'width=1000,height=600');
       popupWin.document.open();
@@ -87,13 +87,13 @@ entry.controller('trainerEntryController', ['$scope', 'entryService', 'users', f
         $scope.detailedEntry = entry || '';
     };
 
-    $scope.printDetailedEntry = function(divName) {
+    $scope.printDetailedEntry = function() {
         var printContents = document.getElementById('entryToPrint').innerHTML;
         var popupWin = window.open('', '_blank', 'width=1000,height=600');
         popupWin.document.open();
         popupWin.document.write('<html><head><link rel="stylesheet" type="text/css" href="style/print.css"/><link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css"></head><body onload="window.print()">' + printContents + '</html>');
         popupWin.document.close();
-    }
+    };
 }]);
 
 entry.controller('vocationTrainerEntryController', ['$scope', '$http','entryService', function($scope, $http, entryService){
@@ -106,6 +106,14 @@ entry.controller('vocationTrainerEntryController', ['$scope', '$http','entryServ
 
     $scope.setDetailedEntry = function (entry) {
         $scope.detailedEntry = entry || '';
+    };
+
+    $scope.printDetailedEntry = function() {
+        var printContents = document.getElementById('entryToPrint').innerHTML;
+        var popupWin = window.open('', '_blank', 'width=1000,height=600');
+        popupWin.document.open();
+        popupWin.document.write('<html><head><link rel="stylesheet" type="text/css" href="style/print.css"/><link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css"></head><body onload="window.print()">' + printContents + '</html>');
+        popupWin.document.close();
     };
 }]);
 

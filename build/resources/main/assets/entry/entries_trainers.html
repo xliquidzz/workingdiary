@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container-fluid">
     <div class="row">
         <div class="list-group col-md-3">
             <div ng-repeat="user in users">
@@ -14,13 +14,18 @@
                 </a>
             </div>
         </div>
-        <div class="panel panel-default col-md-6" ng-hide="detailedEntry === undefined">
+        <div class="panel panel-default col-md-6" ng-hide="detailedEntry === undefined" id="entryToPrint">
             <div class="panel-body">
                 <div class="row">
                     <h3 class="col-md-12">{{ detailedEntry.title }} <small class="pull-right">{{ detailedEntry.created | date: 'dd.MM.yy' }}</small></h3>
                 </div>
                 <div class="row">
-                    <p class="col-md-12">{{ detailedEntry.message }}</p>
+                    <div class="col-md-12" ng-bind-html="detailedEntry.message"></div>
+                </div>
+                <div class="row">
+                    <button type="button" class="btn btn-default col-md-1 print" ng-click="printDetailedEntry()">
+                        <span class="glyphicon glyphicon-print"></span>
+                    </button>
                 </div>
             </div>
         </div>

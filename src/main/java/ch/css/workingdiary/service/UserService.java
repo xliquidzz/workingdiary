@@ -44,7 +44,7 @@ public class UserService implements Service {
     public Optional<User> authenticate(final String username, final String password) {
         final User userToCompareWith = userDao.getByUsernameWithPassword(username);
         if (userToCompareWith != null) {
-            if (password.equals(userToCompareWith.getPassword())) {
+            if (username.equals(userToCompareWith.getUsername()) && password.equals(userToCompareWith.getPassword())) {
                 return Optional.of(userToCompareWith);
             }
         }
@@ -86,5 +86,10 @@ public class UserService implements Service {
         userDao.deleteApprenticeReferenceToTrainer(userId);
         entryService.deleteEntriesByUserId(userId);
         userDao.deleteById(userId);
+    }
+
+    public Optional<Long> create(final User newUser) {
+        final long newUserId = userDao.create(newUser.getUsername(), newUser.getPassword(), newUser.getFirstname(), newUser.getLastname(), newUser.getRoleId());
+        return Optional.of(newUserId);
     }
 }

@@ -10,7 +10,15 @@ html, body {
     left: 50%;
 }
 
-button, .btn, .btn-navbar, .btn-primary {
+
+.ta-editor {
+  min-height: 300px;
+  height: auto;
+  font-family: inherit;
+  font-size: 100%;
+}
+
+#sign-out {
     margin-right: 5px;
 }
 
