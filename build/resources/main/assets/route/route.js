@@ -3,8 +3,8 @@ var route = angular.module('route', ['ngRoute']);
 route.config(['$routeProvider', function ($routeProvider) {
     $routeProvider
     .when('/', {
-        templateUrl: 'entry/entries.html',
-        controller: 'entryController',
+        /*templateUrl: 'entry/entries.html',
+        controller: 'entryController',*/
         resolve: {
             roleId: ['$location', 'loginService', function ($location, loginService) {
                 var request = loginService.getRoleId();

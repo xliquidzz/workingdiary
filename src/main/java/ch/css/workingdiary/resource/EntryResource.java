@@ -32,22 +32,28 @@ public class EntryResource {
 
     @POST
     public Response create(@Valid final Entry newEntry, @Auth User user) throws URISyntaxException {
-        final Optional optionalNewEntryId = entryService.create(newEntry, user.getId());
-        if(optionalNewEntryId.isPresent()) {
-            final Long newEntryId = (Long) optionalNewEntryId.get();
-            return Response.created(new URI(String.valueOf(newEntryId))).build();
+        if (user.getRoleId() == Role.APPRENTICE.getRoleId()) {
+            final Optional optionalNewEntryId = entryService.create(newEntry, user.getId());
+            if(optionalNewEntryId.isPresent()) {
+                final Long newEntryId = (Long) optionalNewEntryId.get();
+                return Response.created(new URI(String.valueOf(newEntryId))).build();
+            }
+            return Response.status(Response.Status.NOT_FOUND).build();
         }
-        return Response.status(Response.Status.BAD_REQUEST).build();
+        return Response.status(Response.Status.FORBIDDEN).build();
     }
 
     @GET
     public Response getEntriesFromUser(@Auth User user) {
-        final Optional<List<Entry>> optionalEntries = entryService.getEntriesByUserId(user.getId());
-        if (optionalEntries.isPresent()) {
-            final List<Entry> entries = optionalEntries.get();
-            return Response.ok(entries).build();
+        if (user.getRoleId() == Role.APPRENTICE.getRoleId()) {
+            final Optional<List<Entry>> optionalEntries = entryService.getEntriesByUserId(user.getId());
+            if (optionalEntries.isPresent()) {
+                final List<Entry> entries = optionalEntries.get();
+                return Response.ok(entries).build();
+            }
+            return Response.status(Response.Status.NOT_FOUND).build();
         }
-        return Response.status(Response.Status.NOT_FOUND).build();
+        return Response.status(Response.Status.FORBIDDEN).build();
     }
 
     @GET
@@ -61,37 +67,43 @@ public class EntryResource {
             }
             return Response.status(Response.Status.NOT_FOUND).build();
         }
-        return Response.status(Response.Status.UNAUTHORIZED).build();
+        return Response.status(Response.Status.FORBIDDEN).build();
     }
 
     @DELETE
     @Path("/{entryId}")
     public Response deleteById(@PathParam("entryId") final long entryId, @Auth final User user) {
-        final Optional<Entry> optionalEntry = entryService.getById(entryId);
-        if (optionalEntry.isPresent()) {
-            final Entry entryToDelete = optionalEntry.get();
-            if (entryToDelete.getUserId() == user.getId()) {
-                entryService.deleteEntryById(entryId);
-                return Response.noContent().build();
+        if (user.getRoleId() == Role.APPRENTICE.getRoleId()) {
+            final Optional<Entry> optionalEntry = entryService.getById(entryId);
+            if (optionalEntry.isPresent()) {
+                final Entry entryToDelete = optionalEntry.get();
+                if (entryToDelete.getUserId() == user.getId()) {
+                    entryService.deleteEntryById(entryId);
+                    return Response.noContent().build();
+                }
+                return Response.status(Response.Status.FORBIDDEN).build();
             }
-            return Response.status(403).build();
+            return Response.status(Response.Status.NOT_FOUND).build();
         }
-        return Response.status(Response.Status.NOT_FOUND).build();
+        return Response.status(Response.Status.FORBIDDEN).build();
     }
 
     @PUT
     @Path("/{entryId}")
     public Response updateById(@PathParam("entryId") final long entryId, @Valid Entry entry, @Auth final User user) {
         final Optional<Entry> optionalEntry = entryService.getById(entryId);
-        if (optionalEntry.isPresent()) {
-            final Entry entryToDelete = optionalEntry.get();
-            if (entryToDelete.getUserId() == user.getId()) {
-                entryService.updateById(entryId, entry);
-                return Response.noContent().build();
+        if (user.getRoleId() == Role.APPRENTICE.getRoleId()) {
+            if (optionalEntry.isPresent()) {
+                final Entry entryToDelete = optionalEntry.get();
+                if (entryToDelete.getUserId() == user.getId()) {
+                    entryService.updateById(entryId, entry);
+                    return Response.noContent().build();
+                }
+                return Response.status(Response.Status.FORBIDDEN).build();
             }
-            return Response.status(403).build();
+            return Response.status(Response.Status.NOT_FOUND).build();
         }
-        return Response.status(Response.Status.NOT_FOUND).build();
+        return Response.status(Response.Status.FORBIDDEN).build();
     }
 }
 

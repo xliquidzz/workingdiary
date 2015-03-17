@@ -44,6 +44,7 @@ public class UserResource {
                 final Map<String, String> accessToken = optionalAccessToken.get();
                 return Response.ok(accessToken).build();
             }
+            return Response.status(Response.Status.NOT_FOUND).build();
         }
         return Response.status(Response.Status.FORBIDDEN).build();
     }
@@ -56,9 +57,9 @@ public class UserResource {
                 final Long newUserId = optionalNewUserId.get();
                 return Response.created(new URI(String.valueOf(newUserId))).build();
             }
-            return Response.status(Response.Status.BAD_REQUEST).build();
+            return Response.status(Response.Status.NOT_FOUND).build();
         }
-        return Response.status(Response.Status.UNAUTHORIZED).build();
+        return Response.status(Response.Status.FORBIDDEN).build();
     }
 
     @GET
@@ -76,8 +77,9 @@ public class UserResource {
                 final List<User> users = optionalUsers.get();
                 return Response.ok(users).build();
             }
+            return Response.status(Response.Status.NOT_FOUND).build();
         }
-        return Response.status(Response.Status.UNAUTHORIZED).build();
+        return Response.status(Response.Status.FORBIDDEN).build();
     }
 
     @GET
@@ -89,8 +91,9 @@ public class UserResource {
                 final List<User> users = optionalUsers.get();
                 return Response.ok(users).build();
             }
+            return Response.status(Response.Status.NOT_FOUND).build();
         }
-        return Response.status(Response.Status.UNAUTHORIZED).build();
+        return Response.status(Response.Status.FORBIDDEN).build();
     }
 
     @DELETE
@@ -100,6 +103,6 @@ public class UserResource {
             userService.deleteById(userId);
             return Response.noContent().build();
         }
-        return Response.status(Response.Status.UNAUTHORIZED).build();
+        return Response.status(Response.Status.FORBIDDEN).build();
     }
 }

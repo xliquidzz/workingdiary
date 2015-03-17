@@ -6,7 +6,7 @@ user.controller('loginController', ['$scope', '$resource', '$window', '$location
     $scope.isSignedIn = loginService.isSignedIn;
 
     var showSignIn = function () {
-        $('.bs-example-modal-md').modal({
+        $('.modal-login').modal({
             toggle: 'modal',
             keyboard: false,
             backdrop: 'static',
@@ -33,7 +33,7 @@ user.controller('loginController', ['$scope', '$resource', '$window', '$location
                 .$promise.then(function (success) {
                         $scope.roleId = success.roleId;
                         $scope.loginAlert = '';
-                        $('.bs-example-modal-md').modal('hide');
+                        $('.modal-login').modal('hide');
                         if($location.path() == '/') {
                             $route.reload();
                         }
@@ -53,7 +53,7 @@ user.controller('loginController', ['$scope', '$resource', '$window', '$location
    roleId.$promise.then(
          function (success) {
             $scope.roleId = success.roleId;
-            $('.bs-example-modal-md').modal('hide');
+            $('.modal-login').modal('hide');
          },
          function (error) {
              setTimeout(function() {
@@ -122,7 +122,7 @@ user.config(['$httpProvider', function ($httpProvider) {
     $httpProvider.interceptors.push('AuthInterceptor');
 }]);
 
-user.factory('AuthInterceptor', ['$window', '$q', function ($window, $q) {
+user.factory('AuthInterceptor', ['$window', '$q', '$location',function ($window, $q, $location) {
     return {
         'request': function(config) {
             config.headers = config.headers || {};
@@ -138,13 +138,15 @@ user.factory('AuthInterceptor', ['$window', '$q', function ($window, $q) {
 
         'responseError': function (rejection) {
             if(rejection.status === 401) {
-                $('.bs-example-modal-md').modal({
+                $('.modal-login').modal({
                     toggle: 'modal',
                     keyboard: false,
                     backdrop: 'static',
                     show: true
                 });
                 $window.localStorage.removeItem('Authorization');
+            } else if (rejection.status === 403) {
+                $location.path('/');
             }
             return $q.reject(rejection);
         }

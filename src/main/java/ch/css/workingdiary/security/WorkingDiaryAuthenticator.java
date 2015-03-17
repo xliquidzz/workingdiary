@@ -7,8 +7,10 @@ import com.github.toastshaman.dropwizard.auth.jwt.JsonWebTokenValidator;
 import com.github.toastshaman.dropwizard.auth.jwt.exceptions.TokenExpiredException;
 import com.github.toastshaman.dropwizard.auth.jwt.model.JsonWebToken;
 import com.google.common.base.Optional;
-import io.dropwizard.auth.AuthenticationException;
 import io.dropwizard.auth.Authenticator;
+
+import javax.ws.rs.WebApplicationException;
+import javax.ws.rs.core.Response;
 
 /**
  * Created by sandro on 09.03.2015.
@@ -26,11 +28,11 @@ public class WorkingDiaryAuthenticator implements Authenticator<JsonWebToken, Us
     }
 
     @Override
-    public Optional<User> authenticate(final JsonWebToken token) throws AuthenticationException {
+    public Optional<User> authenticate(final JsonWebToken token) {
         try {
             jsonWebTokenValidator.validate(token);
         } catch (TokenExpiredException e) {
-            throw new AuthenticationException(e.getMessage(), e);
+            throw new WebApplicationException(Response.Status.UNAUTHORIZED);
         }
         Optional<User> optionalUser = userService.getUserByName(token.claim().getParameter("principal").toString());
         if (optionalUser.isPresent()) {
