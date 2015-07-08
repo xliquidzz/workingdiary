@@ -1,0 +1,3 @@
+describe('entry scenarios', function() {
+
+});

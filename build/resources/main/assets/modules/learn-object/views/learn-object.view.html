@@ -1,0 +1,177 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-offset-1 col-md-10">
+            <div class="list-group">
+                <div ng-repeat="ca in competenceAreas | orderBy : 'id'">
+                    <div class="row">
+                        <a class="list-group-item competence-area-item" href="" data-toggle="collapse" data-target="#collapseCompetence{{ca.id}}" aria-expanded="false" aria-controls="collapseExample">
+                            {{ca.letter}}. <span style="margin-left: 5px;">{{ca.description}}</span>
+                        </a>
+                    </div>
+                    <div class="row">
+                        <div class="collapse" id="collapseCompetence{{ca.id}}">
+                            <div ng-repeat="competence in ca.competences">
+                                <div class="list-group">
+                                    <a class="list-group-item competence-item" href="" data-toggle="collapse" data-target="#collapseGoal{{competence.id}}" aria-expanded="false" aria-controls="collapseExample">
+                                        {{competence.number}}. <span style="margin-left: 5px;">{{competence.description}}</span>
+                                    </a>
+                                </div>
+                                <div class="collapse" id="collapseGoal{{competence.id}}">
+                                    <div class="panel panel-wd">
+                                        <table class="table table-bordered">
+                                            <thead>
+                                            <tr>
+                                                <th colspan="2" style="border-color: white; text-align: left;"></th>
+                                                <th colspan="4" style="text-align: center; border-color: white;">{{(2 * learnYear) - 1}}. Semester</th>
+                                                <th colspan="4" style="text-align: center; border-color: white;">{{2 * learnYear}}. Semester</th>
+                                            </tr>
+                                            <tr>
+                                                <th style="border-color: white; text-align:left;">Lernziel</th>
+                                                <th style="text-align: center; border-color: white;">Ist</th>
+                                                <th style="text-align: center; border-color: white;">G</th>
+                                                <th style="text-align: center; border-color: white;">A</th>
+                                                <th style="text-align: center; border-color: white;">ÜK</th>
+                                                <th style="text-align: center; border-color: white;">BF</th>
+                                                <th style="text-align: center; border-color: white;">G</th>
+                                                <th style="text-align: center; border-color: white;">A</th>
+                                                <th style="text-align: center; border-color: white;">ÜK</th>
+                                                <th style="text-align: center; border-color: white;">BF</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr ng-repeat="goal in competence.goals">
+                                                    <td style="border-color: white; text-align:left;">{{ goal.designation + ' ' + goal.description}}</td>
+                                                    <td style="border-color: white;">
+                                                        <button type="button" class="btn btn-default" style="display: block; margin: auto;" data-toggle="modal" data-target=".rating-modal">
+                                                            <i class="fa fa-star"></i>
+                                                        </button>
+                                                    </td>
+                                                    <td style="text-align: center; vertical-align: middle; border-color: white;">
+                                                        <i class="fa fa-check" ng-show="getObjectByAttribute(goal.semesters, (2 * learnYear) - 1).planned"></i>
+                                                    </td>
+                                                    <td style="text-align: center; vertical-align: middle; border-color: white;">
+                                                        <i class="fa fa-check" ng-show="getObjectByAttribute(goal.semesters, (2 * learnYear) - 1).done"></i>
+                                                    </td>
+                                                    <td style="text-align: center; vertical-align: middle; border-color: white;">
+                                                        <i class="fa fa-check" ng-show="getObjectByAttribute(goal.semesters, (2 * learnYear) - 1).interCompanyCourse"></i>
+                                                    </td>
+                                                    <td style="text-align: center; vertical-align: middle; border-color: white;">
+                                                        <i class="fa fa-check" ng-show="getObjectByAttribute(goal.semesters, (2 * learnYear) - 1).vocationalSchool"></i>
+                                                    </td>
+
+
+                                                    <td style="text-align: center; vertical-align: middle; border-color: white;">
+                                                        <i class="fa fa-check" ng-show="getObjectByAttribute(goal.semesters, 2 * learnYear).planned"></i>
+                                                    </td>
+                                                    <td style="text-align: center; vertical-align: middle; border-color: white;">
+                                                        <i class="fa fa-check" ng-show="getObjectByAttribute(goal.semesters, 2 * learnYear).done"></i>
+                                                    </td>
+                                                    <td style="text-align: center; vertical-align: middle; border-color: white;">
+                                                        <i class="fa fa-check" ng-show="getObjectByAttribute(goal.semesters, 2 * learnYear).interCompanyCourse"></i>
+                                                    </td>
+                                                    <td style="text-align: center; vertical-align: middle; border-color: white;">
+                                                        <i class="fa fa-check" ng-show="getObjectByAttribute(goal.semesters, 2 * learnYear).vocationalSchool"></i>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade rating-modal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <h5 class="text-center">Bitte bewerten Sie dieses Lernziel.</h5>
+                </div>
+                <div class="row">
+                    <label class="radio-inline" style="margin-left: 30px;">
+                        <input type="radio" name="rating" ng-model="learnObject.rating">1
+                    </label>
+                    <label class="radio-inline">
+                        <input type="radio" name="rating" ng-model="learnObject.rating">2
+                    </label>
+                    <label class="radio-inline">
+                        <input type="radio" name="rating" ng-model="learnObject.rating">3
+                    </label>
+                    <label class="radio-inline">
+                        <input type="radio" name="rating" ng-model="learnObject.rating">4
+                    </label>
+                    <label class="radio-inline">
+                        <input type="radio" name="rating" ng-model="learnObject.rating">5
+                    </label>
+                    <label class="radio-inline">
+                        <input type="radio" name="rating" ng-model="learnObject.rating">6
+                    </label>
+                </div>
+                <div class="row">
+                    <h5 class="text-center">Wollen Sie die Bewertung speichern?</h5>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" ng-click="setRating($index)" data-toggle="modal" data-target=".rating-modal">
+                    <i class="fa fa-check"></i> Ja
+                </button>
+                <button type="button" class="btn btn-default" data-toggle="modal" data-target=".rating-modal">
+                    <i class="fa fa-times"></i> Nein
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+<!--
+<div class="row">
+    <div class="collapse" id="collapseGoal{{competence.id}}">
+        <div class="list-group">
+            <div class="panel panel-default">
+                <table class="table table-bordered">
+                    <thead>
+                    <tr>
+                        <th></th>
+                        <th></th>
+                        <th>1. Sem</th>
+                        <th>2. Sem</th>
+                        <th>3. Sem</th>
+                        <th>4. Sem</th>
+                    </tr>
+                    <tr>
+                        <th></th>
+                        <th></th>
+                        <th>Lehrbetrieb</th>
+                        <th>ÜK</th>
+                        <th>BF</th>
+                    </tr>
+                    <tr>
+                        <th>Lernziel</th>
+                        <th>Ist</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <div ng-repeat="goal in competence.goals">
+                        <tr>
+                            <td>blablabla</td>
+                            <td>blablabla</td>
+                            <td>blablabla</td>
+                            <td>blablabla</td>
+                            <td>blablabla</td>
+                            <td>blablabla</td>
+                        </tr>
+                    </div>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>-->

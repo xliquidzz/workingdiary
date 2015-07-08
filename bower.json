@@ -1,0 +1,47 @@
+{
+  "name": "WorkingDiary",
+  "version": "0.0.0",
+  "authors": [
+    "Sandro Klaentschi"
+  ],
+  "description": "A documentation tool for apprentices, so they can write down what they learned.",
+  "moduleType": [
+    "node"
+  ],
+  "keywords": [
+    "java",
+    "dropwizard",
+    "angularjs",
+    "javascript",
+    "html",
+    "css",
+    "documentation",
+    "tool",
+    "apprentice"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular-resource": "1.3.9",
+    "angular": "1.3.9",
+    "angular-route": "1.3.9",
+    "angular-sanitize": "1.3.9",
+    "angular-translate": "~2.7.0",
+    "angular-bootstrap": "~0.13.0",
+    "bootstrap-switch": "~3.3.2",
+    "angular-datepicker": "~1.0.6",
+    "fontawesome": "~4.3.0"
+  },
+  "devDependencies": {},
+  "resolutions": {
+    "angular": "1.3.9",
+    "angular-route": "1.3.9",
+    "angular-sanitize": "1.3.9"
+  }
+}

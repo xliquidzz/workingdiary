@@ -1,0 +1,114 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-offset-2 col-md-8">
+            <div class="panel panel-wd">
+                <div class="panel-heading"><h2 class="panel-title">User</h2></div>
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Username</th>
+                        <th>Vorname</th>
+                        <th>Nachname</th>
+                    </tr>
+                    </thead>
+                    <tbody ng-repeat="apprentice in apprentices">
+                    <tr>
+                        <td>{{ apprentice.id }}</td>
+                        <td>{{ apprentice.username }}</td>
+                        <td>{{ apprentice.firstname }}</td>
+                        <td>{{ apprentice.lastname }}</td>
+                        <td>
+                            <button type="button" class="btn btn-danger" data-toggle="modal" data-target=".modal-remove-prompt" ng-click="setSelectedApprenticeId(apprentice.id)">
+                                <i class="fa fa-trash"></i>
+                            </button>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="row">
+                <button type="button" class="btn btn-success col-md-offset-9 col-md-2" data-toggle="modal" data-target=".modal-new-user">
+                    <i class="fa fa-plus"></i> New User
+                </button>
+            </div>
+            <div class="row">
+                <div ng-bind-html="userAdminAlert"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade modal-remove-prompt" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-md">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Sind sie sicher dass sie diesen Benutzer löschen möchten?</h4>
+            </div>
+            <div class="modal-body">
+                <p class="col-md-12">All seine Einträge würden ebenfalls gelöscht werden.</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default"ng-click="remove(apprentice.id)" data-toggle="modal" data-target=".remove-prompt-modal">
+                    <i class="fa fa-check"></i> Ja
+                </button>
+                <button type="button" class="btn btn-default" data-toggle="modal" data-target=".remove-prompt-modal">
+                    <i class="fa fa-times"></i> Nein
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade modal-new-user" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-md">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Create a new User</h4>
+            </div>
+            <div class="modal-body">
+                <form form-role="form" ng-submit="createUser()" class="form-horizontal">
+                    <div class="row">
+                        <label for="inputUsername" class="col-md-2 control-label">Username:</label>
+                        <div class="col-md-9">
+                            <input type="text" ng-model="newUser.username" class="form-control" id="inputUsername" placeholder="Benutzername">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <label for="inputPassword" class="col-md-2 control-label">Password:</label>
+                        <div class="col-md-9">
+                            <input type="text" ng-model="newUser.password" class="form-control" id="inputPassword" placeholder="Passwort">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <label for="inputFirstname" class="col-md-2 control-label">Firstname:</label>
+                        <div class="col-md-9">
+                            <input type="text" ng-model="newUser.firstname" class="form-control" id="inputFirstname" placeholder="Vorname">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <label for="inputLastname" class="col-md-2 control-label">Lastname:</label>
+                        <div class="col-md-9">
+                            <input type="text" ng-model="newUser.lastname" class="form-control" id="inputLastname" placeholder="Nachname">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <label class="col-md-2 control-label">Rolle:</label>
+                        <div class="col-md-9">
+                            <div class="dropdown form-control">
+                                <select class="form-control" role="menu" aria-labelledby="dropdownMenu2" ng-options="o.role for o in roles" ng-model="selectedRole">
+                                    <option>{{o.role}}</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-success" data-toggle="modal" data-target="modal-new-user">Create</button>
+            </div>
+        </div>
+    </div>
+</div>

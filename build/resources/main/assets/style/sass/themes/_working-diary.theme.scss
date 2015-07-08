@@ -1,0 +1,69 @@
+@import "../base";
+@import 'compass';
+
+$primary-color: #5084dd;
+$dark-blue: #003082;
+$blue: #005bf5;
+$clearBlue: lighten($blue, 40%);
+$grey: #a7aaad;
+$white: #ffffff;
+$black: #111111;
+
+body {
+  background-color: lighten($grey, 20%);
+}
+
+.wd-menu-bar {
+  background-color: lighten($dark-blue, 50%);
+  border-bottom: 1px solid $white;
+}
+
+.wd-menu-bar-brand {
+  color: $white !important;
+  background-color: lighten($dark-blue, 50%);
+  border: none !important;
+}
+
+.wd-menu-bar-item {
+  @extend .wd-menu-bar-brand;
+  .dropdown-toggle {
+    a {
+      color: $white;
+      height: 100px;
+    }
+    &a{
+      @extend .wd-menu-bar-item;
+    }
+  }
+}
+
+.wd-panel {
+  background-color: $clearBlue;
+  box-shadow: 5px 5px 0px darken($grey, 10%);
+  color: $black !important;
+  border: solid 1px $white;
+  border-radius: 15px;
+}
+
+.wd-entry-item {
+  background-color: $clearBlue;
+  color: $black;
+  box-shadow: 5px 5px 0px darken($grey, 10%);
+  border-radius: 15px;
+  border: 1px solid transparentize($white, 0.2);
+}
+
+.wd-modal {
+  @extend .wd-panel;
+}
+
+.ta-editor {
+  overflow-y: scroll;
+}
+
+.selected {
+  background-color: $blue !important;
+  a:hover, a:focus {
+    background-color: $blue !important;
+  }
+}

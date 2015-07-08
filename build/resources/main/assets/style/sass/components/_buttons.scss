@@ -1,0 +1,53 @@
+@import "compass";
+
+$darkBlue: #5084dd !default;
+$blue: #005bf5 !default;
+$green: #2ecc71 !default;
+$dark-blue: #003082 !default;
+$grey: #a7aaad !default;
+$red: #ff0123 !default;
+$white: #ffffff !default;
+$black: #000000 !default;
+
+@mixin wd-btn($baseColor, $fontColor){
+  $darkColor: darken($baseColor, 10%);
+  $darkerColor: darken($darkColor, 10%);
+
+  background-color: $baseColor;
+  box-shadow: 0px 5px 0px $darkerColor;
+  border: 0;
+  color: $fontColor;
+  text-align: center;
+  border-radius: 3px;
+  font-size: 17px;
+  padding: 10px 30px;
+  display: inline-block;
+  outline: 0;
+  margin-right: 5px;
+  &:hover {
+    color: $fontColor;
+    background: $darkColor;
+    box-shadow: 0px 5px 0px $darkerColor;
+  }
+  &:active {
+    color: $fontColor;
+    box-shadow: none;
+    margin-top: 5px;
+  }
+}
+
+.wd-btn-default {
+  @include wd-btn($white, $black);
+}
+
+.wd-btn-primary {
+  @include wd-btn($dark-blue, $white);
+}
+
+.wd-btn-success {
+  @include wd-btn($green, $white);
+}
+
+.wd-btn-danger {
+  @include wd-btn($red, $white);
+}

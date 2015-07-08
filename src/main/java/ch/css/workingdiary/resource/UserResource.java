@@ -1,7 +1,24 @@
+/**
+ * This file is part of Working Diary.
+ *
+ * Working Diary is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Affero General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * Working Diary is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU Affero General Public License for more details.
+ *
+ * You should have received a copy of the GNU Affero General Public License
+ * along with Working Diary.  If not, see <http://www.gnu.org/licenses/>.
+ */
+
 package ch.css.workingdiary.resource;
 
-import ch.css.workingdiary.WorkingDiaryApp;
 import ch.css.workingdiary.representation.User;
+import ch.css.workingdiary.WorkingDiaryApp;
 import ch.css.workingdiary.service.UserService;
 import ch.css.workingdiary.util.Role;
 import com.google.common.base.Optional;
@@ -13,9 +30,13 @@ import javax.ws.rs.core.Response;
 
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.security.NoSuchAlgorithmException;
+import java.security.spec.InvalidKeySpecException;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
+import static java.util.Collections.fill;
 import static java.util.Collections.singletonMap;
 
 /**
@@ -35,7 +56,7 @@ public class UserResource {
 
     @POST
     @Path("/generate-token")
-    public Response generateAccessToken(final User userToCheck) {
+    public Response generateAccessToken(final User userToCheck) throws InvalidKeySpecException, NoSuchAlgorithmException {
         final Optional<User> userOptional = userService.authenticate(userToCheck.getUsername(), userToCheck.getPassword());
         if (userOptional.isPresent()) {
             final User user = userOptional.get();
@@ -46,11 +67,11 @@ public class UserResource {
             }
             return Response.status(Response.Status.NOT_FOUND).build();
         }
-        return Response.status(Response.Status.FORBIDDEN).build();
+        return Response.status(Response.Status.UNAUTHORIZED).build();
     }
 
     @POST
-    public Response create(final User newUser, @Auth final User user) throws URISyntaxException {
+    public Response create(final User newUser, @Auth final User user) throws URISyntaxException, InvalidKeySpecException, NoSuchAlgorithmException {
         if (user.getRoleId() == Role.VOCATION_TRAINER.getRoleId()) {
             final Optional<Long> optionalNewUserId = userService.create(newUser);
             if (optionalNewUserId.isPresent()) {
@@ -104,5 +125,22 @@ public class UserResource {
             return Response.noContent().build();
         }
         return Response.status(Response.Status.FORBIDDEN).build();
+    }
+
+    @POST
+    @Path("/change-password")
+    public Response changePassword(final LinkedHashMap passwords, @Auth final User user) throws InvalidKeySpecException, NoSuchAlgorithmException {
+        final String oldPassword = (String) passwords.get("oldPassword");
+        final String newPassword = (String) passwords.get("newPassword");
+        final String repeatedPassword = (String) passwords.get("repeatedPassword");
+
+        if (newPassword.equals(repeatedPassword)) {
+            final Optional<User> optionalUser = userService.authenticate(user.getUsername(), oldPassword);
+            if(optionalUser.isPresent()) {
+                userService.changePassword(newPassword, user.getId());
+                return Response.noContent().build();
+            }
+        }
+        return Response.status(412).build();
     }
 }

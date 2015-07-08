@@ -1,3 +1,20 @@
+/**
+ * This file is part of Working Diary.
+ *
+ * Working Diary is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Affero General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * Working Diary is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU Affero General Public License for more details.
+ *
+ * You should have received a copy of the GNU Affero General Public License
+ * along with Working Diary.  If not, see <http://www.gnu.org/licenses/>.
+ */
+
 package ch.css.workingdiary.dao;
 
 import ch.css.workingdiary.dao.mapper.UserDisplayMapper;
@@ -38,9 +55,11 @@ public interface UserDao {
     @SqlUpdate("delete from apprentice_trainer where apprenticeId = :userId")
     void deleteApprenticeReferenceToTrainer(@Bind("userId") final long userId);
 
-
     @GetGeneratedKeys
     @SqlUpdate("insert into user (id, username, password, firstname, lastname, fk_roleId) values(NULL, :username, :password, :firstname, :lastname, :roleId)")
     long create(@Bind("username") final String username, @Bind("password") final String password, @Bind("firstname") final String firstname,
-                @Bind("lastname") final String lastname, @Bind("roleId") final long rolId);
+                @Bind("lastname") final String lastname, @Bind("roleId") final long roleId);
+
+    @SqlUpdate("UPDATE user SET password = :newPassword WHERE id = :userId")
+    void changePassword(@Bind("newPassword") final String newPassword, @Bind("userId") final long userId);
 }

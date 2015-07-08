@@ -1,0 +1,46 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="panel panel-wd col-md-10 col-md-offset-1">
+            <div class="panel-body">
+                <form form-role="form" ng-submit="submit()" class="form-horizontal">
+                    <div class="row">
+                        <div class="form-group">
+                            <label for="inputTitle" class="col-md-2 control-label">Titel:</label>
+                            <div class="col-md-9">
+                                <input type="text" ng-model="newEntry.title" class="form-control" id="inputTitle" placeholder="Titel eintragen">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group">
+                            <label for="inputMessage" class="col-md-2 control-label">Message:</label>
+                            <div class="col-md-9">
+                                    <div text-angular ng-model="newEntry.message" id="inputMessage" ta-toolbar="[['h1','h2','h3'],['bold','italics', 'underline'], ['ul','ol']]"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group">
+                            <label for="inputModule" class="col-md-2 control-label">Modul:</label>
+                            <div class="col-md-9">
+                                <input type="text" ng-model="newModule" class="form-control" id="inputModule" placeholder="module">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div ng-bind-html="alert"></div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group">
+                            <!--<div ng-bind-html="spinner" class="col-md-offset-6 col-md-1"></div>-->
+                            <button type="submit" class="col-md-offset-7 col-md-2 btn btn-success" style="margin-right: 5px;">Create</button>
+                            <button type="button" class="col-md-2 btn btn-default" ng-click="reset()">Reset</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

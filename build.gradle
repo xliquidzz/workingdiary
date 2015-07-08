@@ -2,10 +2,10 @@ apply plugin: 'idea'
 apply plugin: 'java'
 apply plugin: 'application'
 
+
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
-// Year and month
 version = '0.1'
 
 [compileJava, compileTestJava]*.options*.encoding = 'UTF-8'
@@ -31,6 +31,7 @@ project.ext {
     toastshamanJwtAuthVersion = '0.7.1-0'
     jwtVersion = '2.0.1'
     commonsCodecVersion ='1.10'
+    oneJarVersion = '1.0.4'
 }
 
 dependencies {
@@ -46,7 +47,7 @@ dependencies {
             'mysql:mysql-connector-java:' + mysqlConnectorVersion,
             'com.github.toastshaman:dropwizard-auth-jwt:' + toastshamanJwtAuthVersion,
             'com.auth0:java-jwt:' + jwtVersion,
-            'commons-codec:commons-codec:' + commonsCodecVersion
+            'commons-codec:commons-codec:' + commonsCodecVersion,
     )
 
     testCompile(
@@ -54,3 +55,8 @@ dependencies {
         'org.mockito:mockito-all:' + mockitoVersion
     )
 }
+
+/*task oneJar(type: OneJar) {
+    mainClass = 'WorkingDiaryApp'
+    archiveName = 'workingdiary.jar'
+}*/
