@@ -3,3 +3,4 @@
 .sass-cache
 build
 node_modules
+src/main/resources/assets/style/.sass-cache
